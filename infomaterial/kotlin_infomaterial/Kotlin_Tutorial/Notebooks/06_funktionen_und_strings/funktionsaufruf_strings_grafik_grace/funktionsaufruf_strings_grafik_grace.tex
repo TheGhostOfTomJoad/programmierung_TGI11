@@ -1,0 +1,28 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+		\node[draw,align=center,rectangle, minimum size=.8cm] (b) {\mintinline[]{kotlin}|greet_bavarian|};
+		\node[align=center, left=0.7cm of b] (a) {\mintinline[]{kotlin}|"Grace"|};
+		\node[align=center, right=0.7cm of b] (c) {\mintinline[]{kotlin}|"Servus Grace"|};
+
+		
+		\path[->]
+		(a) edge[green] (b)
+		(b) edge[green] (c);
+
+		
+	\end{tikzpicture}
+
+\end{document}

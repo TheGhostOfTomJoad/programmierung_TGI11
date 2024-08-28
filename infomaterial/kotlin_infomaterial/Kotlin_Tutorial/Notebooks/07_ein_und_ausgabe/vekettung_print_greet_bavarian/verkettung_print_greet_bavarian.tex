@@ -1,0 +1,43 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+		\node[align=center] (a)
+		{\mintinline[]{kotlin}|"Ada"|};
+		
+		
+		\node[draw, rectangle, align=center, right=0.7cm of a] (b) {\mintinline[]{kotlin}|greet_bavarian|};
+
+		\node[align=center, right=0.7cm of b] (c) {\mintinline[]{kotlin}|"Servus Ada"|};
+
+		
+		\node[draw, rectangle, align = center, right=0.7cm of c] (d) {\mintinline[]{kotlin}|println|};
+		
+		\node[align=center, right=0.7cm of d] (e) {\mintinline[]{kotlin}|Unit|};
+
+
+		\node[align=center, below=0.7cm of d] (f) {Ausgabe: \texttt{Hello Ada}};
+
+		
+		\path[->]
+		(a) edge[green] (b)
+		(b) edge[green] (c)
+		(c) edge[green] (d)
+		(d) edge[green] (e)
+		(d) edge[red] (f);
+		
+		
+	\end{tikzpicture}
+
+\end{document}

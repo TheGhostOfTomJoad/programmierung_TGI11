@@ -1,0 +1,26 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+
+		\node[draw,align=center,rectangle, minimum size=.7cm] (a) {\mintinline[]{kotlin}|True|};
+		\node[draw,align=center,rectangle, minimum size=.7cm, right=0cm of a] (b) {\mintinline[]{kotlin}|False|};
+		\node[draw,align=center,rectangle, minimum size=.7cm, right=0cm of b] (c) {\mintinline[]{kotlin}|True|};
+		
+		\node[align=center, minimum size=.7cm, below=0.1cm of a] (f) {\texttt{0}};
+		\node[align=center, minimum size=.7cm, below=0.1cm of b] (f) {\texttt{1}};
+		\node[align=center, minimum size=.7cm, below=0.1cm of c] (f) {\texttt{2}};
+
+	\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,decorations,shapes,positioning, arrows.meta, shapes.misc}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+
+
+	\begin{tikzpicture}
+		
+		\node[draw,align=center,rectangle, minimum size=.6cm] (a) {\mintinline[]{kotlin}|a|};
+
+		\node[draw, align=center, circle, minimum size=.6cm, right  =0.7cm of a] (b) {\mintinline[]{kotlin}|5|};
+
+		\node[draw, align=center, minimum size=.6cm, above  	=0.3cm of b, cross out] (c) {\mintinline[]{kotlin}|2|};
+		
+		\node[draw, align=center, minimum size=.6cm, above  	=0.3cm of b,circle] (c){};
+		\path[->]
+		(a) -- (c)
+		node[pos = 0.5, sloped] {\huge $\times$}
+		(a) edge[] (b)
+		(a) edge[] (c);
+		
+	\end{tikzpicture}
+
+\end{document}

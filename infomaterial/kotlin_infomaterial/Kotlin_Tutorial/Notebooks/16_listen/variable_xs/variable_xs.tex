@@ -1,0 +1,38 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,fit}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+\newcommand{\tkzList}[4]{{
+\def\fitlist{}
+\foreach \i/ \val in #4 {
+			\node[draw,align=center,rectangle, minimum width=1.5cm, minimum height = 0.5cm]   at (#1 + \i * 1.5cm , #2) (r\i) { \mintinline[escapeinside=**]{kotlin}|* \val *|};
+			\xdef\fitlist{\fitlist(r\i)}
+};
+		 
+\node[draw,rectangle,fit = \fitlist](#3){};
+}}
+\begin{document}
+
+
+
+	\begin{tikzpicture}
+		
+		\node[draw,align=center,rectangle, minimum size=.6cm] (a) {\mintinline[]{kotlin}|xs|};
+
+		\tkzList{2}{0}{b}{{1/true, 2/false, 3/true}}
+
+	
+		\path[->]
+		(a) edge[] (b);
+
+
+		
+	\end{tikzpicture}
+
+\end{document}

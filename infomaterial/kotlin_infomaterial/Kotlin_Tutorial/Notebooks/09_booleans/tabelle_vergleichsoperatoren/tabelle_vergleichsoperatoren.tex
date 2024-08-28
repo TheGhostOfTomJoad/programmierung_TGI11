@@ -1,0 +1,28 @@
+\documentclass[
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{booktabs}
+
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+			\begin{tabular}{cll} 
+			\toprule
+			Vergleichsoperatoren \\  
+			\midrule 
+			Operator & Name & Zu erfüllende Bedingung\\ 
+			\midrule 
+			\mintinline{kotlin}{==} & gleich & Die zu vergleichenden Werte sind identisch \\
+			\mintinline{kotlin}{!=} & ungleich &  Die zu vergleichenden Werte sind verschieden \\
+			\mintinline{kotlin}{<} & kleiner & Der linke Vergleichswert ist kleiner\\
+			\mintinline{kotlin}{>} & größer & Der linke Vergleichswert ist größer\\ 
+			\mintinline{kotlin}{<=} & kleiner gleich & Der linke Vergleichswert ist kleiner oder beide sind gleich\\ 
+			\mintinline{kotlin}{>=} & größer gleich & Der linke Vergleichswert ist größer oder beide sind gleich\\ 
+			\bottomrule
+	\end{tabular}
+
+\end{document}

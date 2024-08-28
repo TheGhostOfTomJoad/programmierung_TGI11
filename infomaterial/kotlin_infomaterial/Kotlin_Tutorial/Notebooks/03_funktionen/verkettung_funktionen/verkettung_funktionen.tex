@@ -1,0 +1,33 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+
+		\node[align=center] (a) {\mintinline[]{kotlin}|7|};
+		\node[draw,align=center,rectangle, minimum size=.4cm,  right=0.7cm of a] (b) {\mintinline[]{kotlin}|yardToFeet|};
+		\node[align=center,right=0.7cm of b] (c) {\mintinline[]{kotlin}|21|};
+		\node[draw,align=center,rectangle, minimum size=.4cm, right=0.7cm of c] (d) {\mintinline[]{kotlin}|feetToInch|};
+		
+		\node[align=center, right=0.7cm of d] (e) {\mintinline[]{kotlin}|252|};
+
+		\path[->]
+		(a) edge[green] (b)
+		(b) edge[green] (c)
+		(c) edge[green] (d)
+		(d) edge[green] (e);
+
+		
+	\end{tikzpicture}
+
+\end{document}

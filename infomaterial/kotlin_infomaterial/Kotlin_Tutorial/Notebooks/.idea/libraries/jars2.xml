@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="jars2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/kotlin-jupyter-kernel-0.12.0-217-all.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/kotlin-reflect-1.9.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/kotlin-script-runtime-1.9.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/annotations-13.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/api-0.12.0-217.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/lib-0.12.0-217.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/kotlin-stdlib-1.9.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/kotlinx-serialization-core-jvm-1.6.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/run_kotlin_kernel/jars/kotlinx-serialization-json-jvm-1.6.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

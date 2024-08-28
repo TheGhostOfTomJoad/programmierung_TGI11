@@ -1,0 +1,46 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}[declare function={a=2.5;}]
+		\colorlet{inside}{orange!50}
+		\colorlet{outside}{orange!50}
+		\path
+		(0,0)     coordinate (A) +(90:a) coordinate (At)
+		(-1.5,-1) coordinate (B) +(90:a) coordinate (Bt)        
+		(3.5,-.5) coordinate (D) +(90:a) coordinate (Dt)
+		($(B)+(D)-(A)$) coordinate (C) +(90:a) coordinate (Ct)
+		;
+		% visible inside surfaces
+		\draw[top color=inside,bottom color=inside!30!black]  % a bit dark ^^ 
+		(A)-- node [text=black,above=40.5pt,xshift = -15pt] {\huge  \mintinline{kotlin}{"^._.^"}  } (D)--(Dt)--(At)--cycle
+		(A)--(B)--(Bt)--(At)--cycle
+		;
+		% visible outside surfaces
+		\draw[fill=outside] 
+		(C)-- node [text=black, sloped,above=10.5pt] {\huge \texttt{bat}}  (B)-- (Bt)--(Ct)--cycle
+		(C)--(D)--(Dt)--(Ct)--cycle
+		;
+		
+		% visible inside upper surfaces
+		\draw[fill=inside!80]
+		(At)--(Bt)--([turn]-100:1.2) coordinate (Bs)--($(Bs)+(At)-(Bt)$)--cycle
+		(Bt)--(Ct)--([turn]-100:1.2) coordinate (Cs)--($(Cs)+(Bt)-(Ct)$)--cycle
+		(Ct)--(Dt)--([turn]-105:1.3) coordinate (Ds)--($(Ds)+(Ct)-(Dt)$)--cycle
+		(Dt)--(At)--([turn]-110:1.3) coordinate (As)--($(As)+(Dt)-(At)$)--cycle
+		;
+		
+		
+		%\draw [thick, blue] (0,0) -- (2,0);
+	\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+		\node[draw,align=center,rectangle, minimum size=.8cm] (b) {\mintinline[]{kotlin}|assertEquals|};
+		\node[align=center, left=0.7cm of b] (a) {\mintinline[]{kotlin}|3|\\
+		\mintinline[]{kotlin}|4|};
+		\node[align=center, right=0.7cm of b] (c) {\mintinline[]{kotlin}|Unit|};
+		\node[align=center, below=0.7cm of b] (d) { \texttt{\textcolor{red}{AssertionError: expected:<3> but was:<4>}}};
+		
+		\path[->]
+		(a) edge[green] (b)
+		(b) edge[green] (c)
+		(b) edge[red] (d);
+		
+	\end{tikzpicture}
+
+\end{document}

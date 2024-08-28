@@ -1,0 +1,29 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+		\node[draw,align=center,rectangle, minimum size=.7cm] (a) {\mintinline[]{kotlin}|'H'|};
+		\node[draw,align=center,rectangle, minimum size=.7cm, right=0cm of a] (b) {\mintinline[]{kotlin}|'e'|};
+		\node[draw,align=center,rectangle, minimum size=.7cm, right=0cm of b] (c) {\mintinline[]{kotlin}|'l'|};
+		\node[draw,align=center,rectangle, minimum size=.7cm, right=0cm of c] (d) {\mintinline[]{kotlin}|'l'|};
+		\node[draw,align=center,rectangle, minimum size=.7cm, right=0cm of d] (e) {\mintinline[]{kotlin}|'o'|};
+		
+		\node[align=center, minimum size=.7cm, below=0.1cm of a] (f) {\texttt{0}};
+		\node[align=center, minimum size=.7cm, below=0.1cm of b] (f) {\texttt{1}};
+		\node[align=center, minimum size=.7cm, below=0.1cm of c] (f) {\texttt{2}};
+		\node[align=center, minimum size=.7cm, below=0.1cm of d] (f) {\texttt{3}};
+		\node[align=center, minimum size=.7cm, below=0.1cm of e] (f) {\texttt{4}};
+	\end{tikzpicture}
+
+\end{document}

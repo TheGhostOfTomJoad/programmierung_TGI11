@@ -1,0 +1,58 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+		\node[outer sep=0, inner sep=0] (a) {\mintinline[]{kotlin}| fun|};
+		\node[right=0.0  of a, outer sep=0, inner sep=0] (b) {\mintinline{kotlin}{ YardToFeet}};
+		\node[right=0.0  of b, distance=0, outer sep=0, inner sep=0] (c) {\mintinline[]{kotlin}|(lengthInYard: Int)|};
+		
+		\node[right=0.0  of c, distance=0, outer sep=0, inner sep=0] (d) {\mintinline[]{kotlin}|: Int|};
+		
+%		
+		\node[right=0.0  of d, distance=0, outer sep=0, inner sep=0] (e) {\mintinline[]{kotlin}| {|};		
+
+		\node[below=0.2  of a, distance=0, outer sep=0, inner sep=0] (f) {\phantom{\texttt{aaaaaa}}};
+
+		\node[right=0.0 of f, outer sep=0, inner sep=0, align=left] (g) {\mintinline{kotlin}|return|};
+		\node[right=0.0 of g, outer sep=0, inner sep=0] (h) {\mintinline{kotlin}| 3 * lengthInYard|};
+		\node[below=0.0 of f, outer sep=0, inner sep=0,align= left] (i) {\mintinline{kotlin}|}|};		
+	
+
+
+	
+%\node[draw, circle, outer sep=0, inner sep=0,above=0.1 of a] (a1) {1};
+%
+%\node[draw, circle, outer sep=0, inner sep=0,above=0.1 of b] (b1) {2};
+%
+%\node[draw, circle, outer sep=0, inner sep=0,above=0.1 of c] (c1) {3};
+%
+%\node[draw, circle, outer sep=0, inner sep=0,above=0.1 of d] (d1) {4};
+
+\node[draw, circle, outer sep=0, inner sep=0,below=0.1 of e] (e1) {1};
+
+\node[draw, circle, outer sep=0, inner sep=0,below=0.1 of g] (g1) {2};
+
+\node[draw, circle, outer sep=0, inner sep=0,below=0.1 of h] (h1) {3};
+\node[draw, circle, outer sep=0, inner sep=0,below=0.1 of i] (i1) {4};
+
+
+
+	\end{tikzpicture}
+
+\end{document}
+
+%\begin{minted}{kotlin}
+%def yard_to_feet(length_in_yard: int) -> int:
+%    return 3 * length_in_yard
+%\end{minted}

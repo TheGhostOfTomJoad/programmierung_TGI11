@@ -1,0 +1,30 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+		\node[draw,align=center,rectangle, minimum size=.8cm] (b) {\mintinline[]{kotlin}|readln|};
+		\node[align=center, left=0.7cm of b] (a) {\mintinline[]{kotlin}||};
+		\node[align=center, right=0.7cm of b] (c) {\mintinline[]{kotlin}|"Grace"|};
+
+		\node[align=center, above=0.7cm of b] (e) {Eingabe: \texttt{Grace}};
+		
+		
+		\path[->]
+		(a) edge[green] (b)
+		(b) edge[green] (c)
+
+		(e) edge[red] (b);
+	\end{tikzpicture}
+
+\end{document}

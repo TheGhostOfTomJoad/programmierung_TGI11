@@ -1,0 +1,28 @@
+\documentclass[
+tikz,
+convert={outext=.svg, command=\unexpanded{pdf2svg \infile\space\outfile}},
+multi=false
+]{standalone}
+\usetikzlibrary{arrows,calc,positioning}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{minted}
+
+\begin{document}
+
+	\begin{tikzpicture}
+		
+		\node[draw,align=center,rectangle, minimum size=.8cm] (b) {\mintinline[]{kotlin}|greetBavarianIO|};
+
+
+		\node[align=left, below=0.7cm of b] (d) {Ausgabe 1: \texttt{Wie heißt du?}\\
+		Ausgabe 2: \texttt{Servus Grace}};
+		\node[align=center, above=0.7cm of b] (e) {Eingabe: \texttt{Grace}};
+		
+		
+		\path[->]
+		(b) edge[red] (d)
+		(e) edge[red] (b);
+	\end{tikzpicture}
+
+\end{document}
