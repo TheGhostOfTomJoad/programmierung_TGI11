@@ -4,14 +4,11 @@ fun main() {
     println("Hello World!")
 }
 
-fun greetPlayerAskChoiceHelper(playerName: String): String =
-    "Hey " + playerName + "! Please choose rock, paper or scissors! "
+fun greetPlayerAskChoiceHelper(playerName: String): String =  "Hey " + playerName + "! Please choose rock, paper or scissors!"
 
-fun showRoundNumber(currentRound: Int, roundsToPlay: Int): String =
-    "Round " + currentRound.toString() + " of " + roundsToPlay.toString()
+fun showRoundNumber(currentRound: Int, roundsToPlay: Int): String = "Round " + currentRound.toString() + " of " + roundsToPlay.toString()
 
-fun greetPlayerAskNameHelper(number: Int): String =
-    "Hello Player " + number.toString() + "! What's your name? "
+fun greetPlayerAskNameHelper(number: Int): String = "Hello Player " + number.toString() + "! What's your name?"
 
 fun printRoundNumber(currentRound: Int, roundsToPlay: Int) =
     println(showRoundNumber(currentRound, roundsToPlay))
@@ -35,24 +32,20 @@ fun computeGameWinner(player1Points: Int, player2Points: Int): String = when {
     else -> "Nobody"
 }
 
-fun resultToName(winner: String, player1Name: String, player2Name: String): String = when {
-    winner == "1" -> player1Name
-    winner == "2" -> player2Name
-    else -> "Nobody"
-}
-
-
-fun showRoundOrGameWinner(name: String, fullGame: Boolean): String =
-    name + " wins this " + (if (fullGame) "game" else "round") + "!"
-
 
 fun showWinnerWithNameHelper(
     winner: String,
     player1Name: String,
     player2Name: String,
     fullGame: Boolean
-): String =
-    showRoundOrGameWinner(resultToName(winner, player1Name, player2Name), fullGame)
+): String {
+    val winnerName = when {
+        winner == "1" -> player1Name
+        winner == "2" -> player2Name
+        else -> "Nobody"
+    }
+    return winnerName + " wins this " + (if (fullGame) "game" else "round") + "!"
+}
 
 fun showRoundWinnerWithName(roundWinner: String, player1Name: String, player2Name: String): String =
     showWinnerWithNameHelper(roundWinner, player1Name, player2Name, false)
