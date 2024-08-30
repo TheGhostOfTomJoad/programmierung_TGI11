@@ -175,10 +175,10 @@ die einen Namen als String übergeben bekommt und einen String
 zurückgibt, in dem die Person gebeten wird, sich für Schere, Stein oder
 Papier zu entscheiden.
 
-```{.kotlin .cb-nb .numberLines}
+```{.kotlin .cb-nb first_number=1}
 greetPlayerAskChoiceHelper("Anna")
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 greetPlayerAskChoiceHelper("Timo")
 ```
 
@@ -192,10 +192,10 @@ Runde die gerade gespielt wird und die Anzahl der Runden, die insgesamt
 gespielt werden. Die Funktion gibt einen String zurück, in dem beide
 Informationen enthalten sind.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showRoundNumber(1, 3)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showRoundNumber(4, 5)
 ```
 
@@ -206,10 +206,10 @@ Dieser Funktion wird die Nummer eines Spielers als Integer übergeben.
 Sie gibt einen String zurück, indem der Spieler begrüßt und nach seinem
 Namen gefragt wird.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 greetPlayerAskNameHelper(1)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 greetPlayerAskNameHelper(2)
 ```
 
@@ -222,10 +222,10 @@ Funktion werden die aktuelle Rundenzahl und die Anzahl der Runden die
 insgesamt gespielt werden als Integer übergeben. Sie gibt beide
 Informationen an der Konsole aus.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printRoundNumber(1, 5)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printRoundNumber(1, 1)
 ```
 
@@ -243,10 +243,10 @@ Funktion wird ein Name als String und eine Punktezahl als Integer
 übergeben. Sie gibt einen String zurück, in dem steht wie viele Punkte
 die Person hat.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showPlayerPoints("Kevin", 1)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showPlayerPoints("Barbara", 3)
 ```
 
@@ -261,13 +261,13 @@ und `"Nobody"`{.kotlin}.
 
 <!-- ![<https://upload.wikimedia.org/wikipedia/commons/6/67/Rock-paper-scissors.svg>](rock-paper-scissors){width="50%"} -->
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 computeRoundWinner("rock", "scissors")
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 computeRoundWinner("rock", "paper")
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 computeRoundWinner("rock","rock")
 ```
 
@@ -284,13 +284,13 @@ zurückgegeben werden welcher Spieler, das Spiel gewonnen hat. Ansonsten
 wird zurückgegeben welcher Spieler die Runde gewonnen hat. In dem String
 werden die übergebenen Namen verwendet.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showWinnerWithNameHelper("1", "Grace", "Alan", true)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showWinnerWithNameHelper("2", "Grace", "Alan", false)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showWinnerWithNameHelper("Nobody", "Grace", "Alan", false)
 ```
 
@@ -303,13 +303,13 @@ die Namen der Spieler übergeben. Die Funktion gibt einen String zurück
 in dem steht, wer die Runde gewonnen hat. In dem String wird der Name
 des Spielers verwendet.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showRoundWinnerWithName("1", "Grace", "Alan")
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showRoundWinnerWithName("2", "Grace", "Alan")
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showRoundWinnerWithName("Nobody", "Grace", "Alan")
 ```
 
@@ -322,13 +322,13 @@ der Spieler als Strings und ihre die Punktezahlen als Integer übergeben.
 Die Funktion gibt einen String zurück in dem steht, wer das Spiel
 gewonnen hat.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showGameWinnerWithName("Grace", "Alan", 1, 2)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showGameWinnerWithName("Grace", "Alan", 5, 0)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 showGameWinnerWithName("Grace", "Alan", 1 , 1)
 ```
 
@@ -344,13 +344,13 @@ Möglichkeiten für das erste Argument sind `"1"`{.kotlin}, `"2"`{.kotlin}
 und `"Nobody"`{.kotlin}. Die Funktion gibt die neue Punktzahl des
 Spielers zurück.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 computeNewPoints("1", 1, 3)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 computeNewPoints("2", 1, 3)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 computeNewPoints("Nobody", 1, 1)
 ```
 
@@ -362,13 +362,13 @@ Schreibe eine Funktion `printRoundWinnerWithName`{.kotlin}. Diese
 funktioniert genau wie `showRoundWinnerWithName`{.kotlin}. Sie gibt
 den Strings aber an der Konsole aus und nicht zurück.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printRoundWinnerWithName("1", "Grace", "Alan")
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printRoundWinnerWithName("2", "Grace", "Alan")
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printRoundWinnerWithName("Nobody", "Grace", "Alan")
 ```
 
@@ -382,10 +382,10 @@ Funktion werden zwei Spielernamen als Strings und deren Punktezahl als
 Integer übergeben. Sie gibt an der Konsole aus welcher Spieler wie viele
 Punkte hat.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printPlayersPoints("Kevin", "Barbara", 1, 5)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printPlayersPoints("Ali", "Maria", 1, 5)
 ```
 
@@ -398,13 +398,13 @@ Dieser Funktion werden zwei Spielernamen als Strings und deren
 Punktezahl als Integer übergeben. Sie gibt das Endergebniss an der
 Konsole aus.
 
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printGameWinnerWithName("Kevin", "Barbara", 1, 5)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printGameWinnerWithName("Ali", "Maria", 6, 5)
 ```
-```{.kotlin .cb-nb}
+```{.kotlin .cb-nb first_number=1}
 printGameWinnerWithName("Ali", "Maria", 6, 6)
 ```
 
@@ -519,7 +519,6 @@ Nutze `greetPlayerAskName`{.kotlin}, `aksRounds`{.kotlin} und
 Nutze das Kontrollzeichen `"\n"`{.kotlin} im Code um bei der Ausgabe
 Zeilen zu überspringen.
 
-<!-- 
 # Verbesserungen
 
 # While-Schleifen
@@ -530,19 +529,7 @@ Benutzer solange auffordert etwas einzugeben, bis die Eingabe
 `rock`{.kotlin}, `paper`{.kotlin} oder `scissors`{.kotlin} ist. Diese
 Eingabe wird dann zurückgegeben.
 
-<!-- ![image](while_input){width="\\linewidth"} 
 
-## Aufgabe
-Implementiere eine Funktion `isInInterval`{.kotlin}, die eine Zahl als
-String und zwei Zahlen als Integer übergeben bekommt. Die Funktion
-prüft, ob die erste Zahl zwischen den beiden anderen Zahlen liegt. Gehe
-davon aus, dass das zweite Integer größer ist, als das erste Integer.
-
-```{.kotlin .cb-nb}
-isInInterval("4", 1 , 2) 
-isInInterval("3", 1 , 3)
-isInInterval("5", 5 , 7)
-```
 
 
 ## Aufgabe
@@ -552,7 +539,6 @@ Benutzerin auf eine Rundenzahl zwischen diesen beiden Zahlen einzugeben
 und fragt solange nach, bis die Eingabe korrekt war.
 ```
 
-<!-- ![image](getCorrectRoundCounter){width="\\linewidth"} 
 
 ## Aufgabe
 Bau diese Funktionen in das vollständige Programm ein! --> 
