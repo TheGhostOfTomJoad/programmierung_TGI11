@@ -203,7 +203,7 @@ showRoundNumber(4, 5)
 ## Aufgabe
 Implementiere eine Funktion `greetPlayerAskNameHelper`{.kotlin}.
 Dieser Funktion wird die Nummer eines Spielers als Integer übergeben.
-Sie gibt einen String zurück, indem der Spieler begrüßt und nach seinem
+Sie gibt einen String zurück, in dem der Spieler begrüßt und nach seinem
 Namen gefragt wird.
 
 ```{.kotlin .cb-nb first_number=1}

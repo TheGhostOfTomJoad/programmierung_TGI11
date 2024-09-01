@@ -1,0 +1,380 @@
+\documentclass[class=scrartcl, crop=false]{standalone}
+
+\usepackage[
+typ={ohne},
+fach=Informatik,
+lerngruppe=SG-J1,
+%loesungen=seite,
+%lizenz={cc-by-nc-sa-4}
+module={Aufgaben},
+farbig
+]{schule}
+\usepackage{fourier-otf}
+%\usepackage{polyglossia}
+%\setmainlanguage{ngerman}
+
+
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{shellesc}
+\ShellEscape{pythontex \jobname.pytxcode }
+\usepackage[
+%prettyprinter=pygments, %pygopt={style=emacs}
+]{pythontex}
+
+
+
+\usepackage{minted}
+
+\title{Listen}
+
+
+
+\newcommand{\expandpyconc}[1]{\expandafter\reallyexpandpyconc\expandafter{#1}}
+\newcommand{\reallyexpandpyconc}[1]{\pyconc{exec(compile(open('#1', 'rb').read(), '#1', 'exec'))}}
+
+\newenvironment{pyconcodeblck}[1]
+{\newcommand{\snippetfile}{snippet-#1.py}
+	\VerbatimEnvironment
+	\begin{VerbatimOut}{\snippetfile}}
+	{\end{VerbatimOut}
+	\expandpyconc{\snippetfile}}
+
+\newcommand{\typesetcode}[1]{\inputpygments{python}{snippet-#1.py}}
+
+
+
+\begin{document}
+
+\begin{pyconcodeblck}{listen}
+def grow(arr):
+    acc = 1
+    for x in arr:
+        acc = acc * x
+    return acc
+
+def square_sum(numbers):
+    acc = 0
+    for i in numbers:
+        acc = acc + i * i
+    return acc
+
+def maps(xs):
+    acc = []
+    for x in xs:
+        acc = acc + [2 * x]
+    return acc
+
+def invert(lst):
+    acc = []
+    for x in lst:
+        acc = acc + [-1 * x]
+    return acc
+
+def reverse_seq(n):
+    acc = []
+    for i in range(n):
+        acc = acc + [n - i]
+    return acc
+
+def positive_sum(arr):
+    acc = 0
+    for i in arr:
+        if i > 0:
+            acc = acc + i
+    return acc
+
+def find_smallest_int(arr):
+    acc = arr[0]
+    for x in arr:
+        if acc > x:
+            acc = x
+    return acc
+
+def small_enough(array, limit):
+    for x in array:
+        if x > limit:
+            return False
+    return True
+
+
+def gameToPoints(s:str):
+    if s[0] > s[2]:
+        return 3
+    if s[0] == s[2]:
+        return 1
+    return 0
+    
+
+def points(games):
+    acc = 0
+    for game in games:
+        acc = acc + gameToPoints(game)
+    return acc
+
+def two_oldest_ages(ages):
+    oldest_age = 0
+    second_oldest_age = 0
+    for age in ages:
+        if age > oldest_age:
+            second_oldest_age = oldest_age
+            oldest_age = age
+        elif age >= second_oldest_age:
+            second_oldest_age = age
+    return [second_oldest_age, oldest_age]
+
+
+def tribonacci(signature, n):
+    acc = []
+    for i in range(n):
+        if i < 3:
+            acc = acc + [signature[i]]
+        else:
+            new_element = acc[i -1] + acc[i - 2] + acc[i - 3]
+            acc = acc + [new_element]
+    return acc
+        
+def find_outlier(integers):    
+    sum=0
+    for number in integers[0:3]:
+        if number % 2==0:
+            sum=sum+1
+    if sum > 1:
+        for number in integers:
+            if number % 2==1:
+                return(number)
+    else:            
+        for number in integers:
+            if number % 2==0:
+                return(number)
+
+
+def max_sequence(arr):
+    setofsequences = []
+    for i in range(len(arr) + 1):
+        for j in range(len(arr) + 1 - i):
+            setofsequences.append(arr[j:j + i])
+    a = 0
+    for i in setofsequences[1:]:
+        if sum(i) > a:
+            a = sum(i)
+    return a
+
+
+
+def opposite(dir):
+    if dir == "NORTH":
+        return "SOUTH"
+    if dir == "SOUTH":
+        return "NORTH"
+    if dir == "EAST":
+        return "WEST"
+    if dir == "WEST":
+        return "EAST"
+
+def dir_reduc_helper(arr):
+    acc = []
+    i = 0
+    while i < len(arr) - 1:
+        if opposite(arr[i]) == arr[i + 1]:
+            i = i + 2
+        else:
+            acc = acc + [arr[i]]
+            i = i + 1
+    if i == len(arr) - 1:
+        acc = acc + [arr[i]]
+    return acc
+
+
+def dir_reduc(arr):
+    acc = arr
+    while True:
+        new_acc = dir_reduc_helper(acc)
+        if new_acc == acc:
+            return new_acc
+        else:
+            acc = new_acc
+            
+\end{pyconcodeblck}
+
+\section{Listen}
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|grow|. Dieser wird eine Liste mit Integern übergeben. Sie gibt das Produkt der Integer zurück.
+
+\begin{pyconsole}
+grow([1 , 2, 2])
+grow([-13, -2])
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/57f780909f7e8e3183000078/train/python}
+\end{aufgabe}
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|square_sum|. Dieser wird eine Liste von Integern übergeben.  Sie gibt die Summe der Quadrate der Zahlen in dieser Liste zurück. Z.B gilt $$\mathtt{square\_sum([1, 2]) = 1^2 + 2^2 = 5 }$$
+
+\begin{pyconsole}
+square_sum([1, 2])
+square_sum([0, 3, 4, 5])
+\end{pyconsole}
+\url{https://www.codewars.com/kata/515e271a311df0350d00000f/train/python}
+\end{aufgabe}
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|maps|. Dieser wird eine Liste von Integern übergeben. Sie gibt eine Liste zurück in der jeder Eintrag der übergebenen Liste verdoppelt wurde.
+\begin{pyconsole}
+maps([1, 2, -3])
+maps([-13, 9])
+\end{pyconsole}
+\url{https://www.codewars.com/kata/57f781872e3d8ca2a000007e/train/python}
+\end{aufgabe}
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|invert|. Dieser wird eine Liste von Integern übergeben. Sie gibt eine Liste zurück in der das Vorzeichen jedes Eintrags der übergebenen Liste umgedreht wurde.
+
+\begin{pyconsole}
+invert([1, 2, -2])
+invert([-1, 4, 0])
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/5899dc03bc95b1bf1b0000ad/train/python}
+
+\end{aufgabe}
+
+
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|positive_sum|. Dieser wird eine Liste von Integern übergeben.  Sie gibt die Summe der positiven Zahlen in dieser Liste zurück.
+
+\begin{pyconsole}
+positive_sum([1, 2, 3, 4, 5])
+positive_sum([-1, 2, 3, 4, -5])
+\end{pyconsole}
+
+
+\url{https://www.codewars.com/kata/5715eaedb436cf5606000381/train/python}
+\end{aufgabe}
+
+
+
+\begin{aufgabe}
+Schreibe eine Funktion  \mintinline{python}|find_smallest_int|. Dieser wird eine nichtleere Liste von Integern übergeben. Sie gibt das kleinste Integer in der Liste zurück.
+
+\begin{pyconsole}
+find_smallest_int([1, 2, 3])
+find_smallest_int([-1, 0, - 5])
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/55a2d7ebe362935a210000b2/train/python}
+\end{aufgabe}
+
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|small_enough|. Dieser wird eine Liste von Integern und ein ein weiteres Integer übergeben. Falls alle Integer in der Liste kleiner oder gleich groß wie diese Zahl sind wird \mintinline{python}|True| zurückgegeben. Ansonsten wird \mintinline{python}|False| zurückgegeben.
+\end{aufgabe}
+
+\begin{pyconsole}
+small_enough([1, 2, 3], 3)
+small_enough([1, 2, 3], 2)
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/57cc981a58da9e302a000214/train/python}
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|points|. Dieser wird eine Liste von Strings übergeben. Jeder String steht für Das Ergebnis eines Fußballspiel z.B. \mintinline{python}|'3:2'|. Der erste Buchstabe ist die Punktzahl von unserem Team. Dann folgt immer ein Doppelpunkt und die Punktezahl des anderen Teams. Die Funktion gibt die Punktezahl unseres Teams nach allen Spielen in der Liste zurück. Du kannst annehmen, dass kein Team mehr als $9$ Tore in einem Spiel geschossen hat. Bei eines Sieg bekommt ein Team $3$ Punkte, bei einem Unentschieden einen Punkt und bei einer Niederlage gar keine Punkte.
+\begin{pyconsole}
+points(['1:0', '2:0'])
+points(['1:0', '2:3', '2:2'])
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/5bb904724c47249b10000131/train/python}
+\end{aufgabe}
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|two_oldest_ages|. Dieser wird eine Liste mit Integern übergeben. Sie soll eine Liste zurückgeben, die die beiden höchsten Zahlen in der Liste enthält.
+
+\begin{pyconsole}
+two_oldest_ages([1, 5, 87, 45, 8, 8])
+two_oldest_ages([10, 1])
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/511f11d355fe575d2c000001/train/python}
+\end{aufgabe}
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|tribonaci|. Dieser wird eine Liste und eine weitere Zahl $n$ übergeben. Die Funktion soll die ersten  $n$-te Zahlen der Tribonacci-Folge als Liste zurückgeben.
+
+Die übergebene Liste enthält die ersten $3$ Zahlen dieser Folge. Jede weitere Zahl ist die Summe ihrer $3$ Vorgänger.
+
+\begin{pyconsole}
+tribonacci([1, 2 , 3], 5)
+tribonacci([1, 0 , 3], 2)
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/556deca17c58da83c00002db/train/python}
+\end{aufgabe}
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|find_outlier|. Dieser wird eine Liste von Integern übergeben. Die Liste einhält \begin{enumerate}
+\item entweder nur gerade Zahlen und eine ungerade Zahl. In diesem Fall soll die  ungerade Zahl zurückgegeben werden
+\item oder nur ungerade Zahlen und eine gerade Zahl. Dann soll die  gerade Zahl zurückgegeben werden
+\end{enumerate}
+
+\begin{pyconsole}
+find_outlier([2, 4, 6, 8, 10, 3])
+find_outlier([160, 3, 1719, 19, 11, 13, -21])
+\end{pyconsole}
+
+
+\url{https://www.codewars.com/kata/5526fc09a1bbd946250002dc/train/python}
+\end{aufgabe}
+
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|max_sequence|. Dieser wird eine Liste von Integern übergeben. Es wird die größte Summe von aufeinanderfolgenden Zahlen in der Liste zurückgegeben.
+
+Z.B. gilt $$\mathtt{max\_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) = 6}$$, da die Summe der aufeinanderfolgenden Zahlen $4, -1, 2, 1$ genau $6$ ergibt und keine größere von aufeinanderfolgenden Summe gebildet werden kann.
+
+
+
+\begin{pyconsole}
+max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+max_sequence([1, 2, -5, 7])
+\end{pyconsole}
+
+
+\url{https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/train/python}
+\end{aufgabe}
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|dir_reduce|. Dieser wird eine Liste von Strings übergeben. Jeder String stellt eine Richtung dar.
+Falls dabei nacheinander entgegengesetzte Richtungen auftreten sollen diese raus gestrichen werden. Z.B gilt $$\mathtt{dir\_reduce(["North", "South", "West", "East", "South"]) = ["South"] }$$
+
+Wenn erst durch das Streichen von zwei entgegengesetzten Richtungen zwei weitere entgegengesetzte  Richtungen hintereinander stehen müssen diese auch gestrichen werden. Z.B. gilt
+$$\mathtt{dir\_reduce(["North", "West", "East", "South"]) = [] }$$
+\url{https://www.codewars.com/kata/550f22f4d758534c1100025a/train/python}
+
+\end{aufgabe}
+
+\section{Veränderbare Listen}
+
+
+\begin{aufgabe}
+Schreibe eine Funktion \mintinline{python}|reverse_seq|. Dieser wird ein Integer übergeben. Sie gibt alle Zahlen von diesem Integer bis zur $1$ in absteigender Reihenfolge zurück.
+
+\begin{pyconsole}
+reverse_seq(5)
+reverse_seq(1)
+\end{pyconsole}
+
+\url{https://www.codewars.com/kata/5a00e05cc374cb34d100000d/train/python}
+
+\end{aufgabe}
+
+\end{document}

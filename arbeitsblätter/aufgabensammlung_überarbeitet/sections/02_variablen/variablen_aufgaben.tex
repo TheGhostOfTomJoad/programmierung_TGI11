@@ -1,0 +1,81 @@
+\documentclass[class=scrartcl, crop=false]{standalone}
+\usepackage[
+typ={ab},
+fach=Informatik,
+lerngruppe=TGI-11,
+%loesungen=seite,
+%lizenz={cc-by-nc-sa-4}
+module={Aufgaben},
+farbig
+]{schule}
+%\usepackage{polyglossia}
+%\setmainlanguage{ngerman}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{shellesc}
+\ShellEscape{pythontex \jobname.pytxcode }
+\usepackage[
+%prettyprinter=pygments, %pygopt={style=emacs}
+]{pythontex}
+
+
+\usepackage{hyperref}
+\title{Variablen}
+
+\usepackage{booktabs}
+
+\usepackage{minted}
+
+
+
+
+
+\newcommand{\expandpyconc}[1]{\expandafter\reallyexpandpyconc\expandafter{#1}}
+\newcommand{\reallyexpandpyconc}[1]{\pyconc{exec(compile(open('#1', 'rb').read(), '#1', 'exec'))}}
+
+\newenvironment{pyconcodeblck}[1]
+{\newcommand{\snippetfile}{snippet-#1.py}
+	\VerbatimEnvironment
+	\begin{VerbatimOut}{\snippetfile}}
+	{\end{VerbatimOut}
+	\expandpyconc{\snippetfile}}
+
+\newcommand{\typesetcode}[1]{\inputpygments{python}{snippet-#1.py}}
+
+
+
+\begin{document}
+
+
+\section{Variablen}
+
+\begin{aufgabe}
+\noindent
+Löse die beiden ersten Aufgaben aus dem letzten Kapitel mit Hilfe von Variablen. Beachte die folgenden Regeln:
+\begin{itemize}
+\item Vermeide die mehrfache Auswertung von Ausdrücken
+\item Speichere deine Ergebnisse und Zwischenergebnisse in Variablen mit sprechenden Namen.
+\end{itemize}
+\end{aufgabe}
+
+\begin{aufgabe}
+\noindent
+Berechne $2^{16}$ und verwende dabei 
+\begin{enumerate}
+\item als einziges Literal die \mintinline{python}|2|und dieses nur einmal.
+\item nur $4$ Malzeichen
+\end{enumerate}
+\end{aufgabe}
+
+
+\begin{aufgabe}
+\noindent
+Denke dir eine weitere Aufgabe aus bei der die Verwendung von Variablen hilfreich ist.
+\end{aufgabe}
+
+
+
+
+\end{document}

@@ -1,0 +1,106 @@
+\documentclass[class=scrartcl, crop=false]{standalone}
+\usepackage[
+typ={ohne},
+fach=Informatik,
+lerngruppe=SG-J1,
+%loesungen=seite,
+%lizenz={cc-by-nc-sa-4}
+module={Aufgaben},
+farbig
+]{schule}
+%\usepackage{polyglossia}
+%\setmainlanguage{ngerman}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{shellesc}
+\ShellEscape{pythontex \jobname.pytxcode }
+\usepackage[
+%prettyprinter=pygments, %pygopt={style=emacs}
+]{pythontex}
+
+
+\usepackage{hyperref}
+
+
+\usepackage{booktabs}
+
+\usepackage{minted}
+
+
+
+
+
+\newcommand{\expandpyconc}[1]{\expandafter\reallyexpandpyconc\expandafter{#1}}
+\newcommand{\reallyexpandpyconc}[1]{\pyconc{exec(compile(open('#1', 'rb').read(), '#1', 'exec'))}}
+
+\newenvironment{pyconcodeblck}[1]
+{\newcommand{\snippetfile}{snippet-#1.py}
+	\VerbatimEnvironment
+	\begin{VerbatimOut}{\snippetfile}}
+	{\end{VerbatimOut}
+	\expandpyconc{\snippetfile}}
+
+\newcommand{\typesetcode}[1]{\inputpygments{python}{snippet-#1.py}}
+
+
+
+\begin{document}
+
+\begin{pyconcodeblck}{funktionen_und_strings}
+def say_hello(name):
+    return "Hello, " + name
+    
+def greet(name):
+    return "Hello, " + name + " how are you doing today?"
+
+
+
+
+def combine_names(firstName, lastName):
+    return firstName + " " + lastName
+\end{pyconcodeblck}
+
+
+
+\section{Funktionen und Strings}
+
+
+\begin{aufgabe} \noindent
+Implementiere eine Funktion \mintinline{python}{say_hello}, die einen Namen als String übergeben bekommt und eine Begrüßung an die Person zurückgibt.
+
+\begin{pyconsole}
+say_hello("Ada")
+say_hello("Alan Turing")
+\end{pyconsole}
+
+\noindent\url{https://www.codewars.com/kata/5625618b1fe21ab49f00001f/train/python}
+\end{aufgabe}
+
+
+
+\begin{aufgabe} \noindent
+Implementiere eine Funktion \mintinline{python}{greet}, die einen Namen als String übergeben bekommt und eine freundlichere Begrüßung an die Person zurückgibt.
+	
+\begin{pyconsole}
+greet("Ina")
+greet("Grace Hopper")
+\end{pyconsole}
+	
+\noindent\noindent\url{https://www.codewars.com/kata/55a70521798b14d4750000a4/train/python}
+\end{aufgabe}
+
+
+\begin{aufgabe} \noindent
+Implementiere eine Funktion \mintinline{python}{combineNames}, die Vor- und Nachnamen einer Person als Strings übergeben bekommt und den vollen Namen der Person zurückgibt.
+	
+\begin{pyconsole}
+combine_names("Alan", "Turing")
+combine_names("Grace", "Hopper")
+\end{pyconsole}
+	
+\noindent\url{https://www.codewars.com/kata/55f73f66d160f1f1db000059/train/python}
+\end{aufgabe}
+
+\end{document}

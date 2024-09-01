@@ -1,0 +1,105 @@
+\documentclass[a4paper, DIV = calc]{scrartcl}
+\usepackage[
+typ={ohne},
+fach=Informatik,
+lerngruppe=SG-J1,
+%loesungen=seite,
+%lizenz={cc-by-nc-sa-4}
+module={Aufgaben},
+farbig
+]{schule}
+\usepackage[]{standalone}
+\usepackage{import}
+
+\usepackage{graphicx}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{shellesc}
+\ShellEscape{pythontex \jobname.pytxcode }
+\usepackage[]{pythontex}
+
+\usepackage[]{csquotes}
+
+\usepackage{amsthm}
+\newtheorem*{matheaufgabe}{Mathematikaufgabe}
+\newtheorem*{loesung_der_matheaufgabe}{Lösung}
+\usepackage{float}
+\usepackage{placeins}
+
+\usepackage{booktabs}
+
+\usepackage{babel}
+
+
+\usepackage{minted}
+\title{Aufgabensammlung Python}
+%\usepackage{polyglossia}
+%\setmainlanguage{ngerman}
+
+\newcommand{\expandpyconc}[1]{\expandafter\reallyexpandpyconc\expandafter{#1}}
+\newcommand{\reallyexpandpyconc}[1]{\pyconc{exec(compile(open('#1', 'rb').read(), '#1', 'exec'))}}
+
+\newenvironment{pyconcodeblck}[1]
+{\newcommand{\snippetfile}{snippet-#1.py}
+	\VerbatimEnvironment
+	\begin{VerbatimOut}{\snippetfile}}
+	{\end{VerbatimOut}
+	\expandpyconc{\snippetfile}}
+
+\newcommand{\typesetcode}[1]{\inputpygments{python}{snippet-#1.py}}
+
+%\usepackage[hidelinks]{hyperref}
+\usepackage{scrlayer-scrpage}
+\ifoot{
+	
+	\includegraphics[width=0.35\linewidth]{GHSE-Logo}
+	
+}
+
+
+\begin{document}
+%\maketitle
+\pagenumbering{gobble}
+\maketitle
+%\pagenumbering{arabic}
+%\thispagestyle{empty}
+\pagenumbering{gobble}
+\tableofcontents
+%\thispagestyle{empty}
+\pagebreak
+\pagenumbering{arabic}
+
+
+\import{sections/01_werte_und_ausdruecke/}{werte_und_ausdruecke_aufgaben}
+\pagebreak
+\import{sections/02_variablen/}{variablen_aufgaben}
+\pagebreak
+\import{sections/03_funktionen/}{funktionen_aufgaben}
+\pagebreak
+\import{sections/04_strings/}{strings_aufgaben}
+\pagebreak
+\import{sections/05_datentypen/}{datentypen_aufgaben}
+\pagebreak
+\import{sections/06_funktionen_und_strings/}{funktionen_und_strings_aufgaben}
+\pagebreak
+\import{sections/07_ein_und_ausgabe/}{ein_und_ausgabe_aufgaben}
+\pagebreak
+\import{sections/08_booleans/}{booleans_aufgaben}
+\pagebreak
+\import{sections/09_bedingte_ausführung/}{bedingte_ausführung_aufgaben}
+\pagebreak
+\import{sections/10_werte_von_variablen_ändern/}{werte_von_variablen_ändern_aufgaben}
+\pagebreak
+\import{sections/11_for_schleifen/}{for_schleifen_aufgaben}
+\pagebreak
+\import{sections/12_while_schleifen/}{while_schleifen_aufgaben}
+\pagebreak
+\import{sections/13_strings_als_container/}{strings_als_container_aufgaben}
+\pagebreak
+\import{sections/14_listen/}{listen_aufgaben}
+\pagebreak
+%\import{sections/15_listen_ändern/}{listen_ändern_aufgaben}
+%\pagebreak
+%\import{sections/16_floats/}{floats_aufgaben}
+%\pagebreak
+\end{document}

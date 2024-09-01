@@ -1,0 +1,87 @@
+\documentclass[class=scrartcl, crop=false]{standalone}
+\usepackage[
+typ={ohne},
+fach=Informatik,
+lerngruppe=SG-J1,
+%loesungen=seite,
+%lizenz={cc-by-nc-sa-4}
+module={Aufgaben},
+farbig
+]{schule}
+%\usepackage{polyglossia}
+%\setmainlanguage{ngerman}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage{fourier-otf}
+\setmonofont{Ubuntu Mono Regular}[Scale=0.9]
+\usepackage{shellesc}
+\ShellEscape{pythontex \jobname.pytxcode }
+\usepackage[
+%prettyprinter=pygments, %pygopt={style=emacs}
+]{pythontex}
+
+
+\usepackage{hyperref}
+
+
+\usepackage{booktabs}
+
+\usepackage{minted}
+
+
+
+
+
+\newcommand{\expandpyconc}[1]{\expandafter\reallyexpandpyconc\expandafter{#1}}
+\newcommand{\reallyexpandpyconc}[1]{\pyconc{exec(compile(open('#1', 'rb').read(), '#1', 'exec'))}}
+
+\newenvironment{pyconcodeblck}[1]
+{\newcommand{\snippetfile}{snippet-#1.py}
+	\VerbatimEnvironment
+	\begin{VerbatimOut}{\snippetfile}}
+	{\end{VerbatimOut}
+	\expandpyconc{\snippetfile}}
+
+\newcommand{\typesetcode}[1]{\inputpygments{python}{snippet-#1.py}}
+
+
+
+\begin{document}
+
+
+
+\section{Werte von Variablen ändern}
+
+
+\begin{aufgabe} \noindent
+
+Welche Werte haben die Variablen am Ende?
+\begin{teilaufgaben}
+\teilaufgabe \begin{minted}[]{python}
+x = 3
+y = x
+x = 4 * x - x
+y = x - y
+\end{minted}
+
+\teilaufgabe \begin{minted}[]{python}
+x = "hello"
+y = "world"
+z = x
+x = y
+x = y + " " + x
+\end{minted}
+\teilaufgabe
+\begin{minted}{python}
+a = True or False
+b = False and True
+a = a or b
+\end{minted}
+
+\end{teilaufgaben}
+
+
+\end{aufgabe}
+
+
+\end{document}
