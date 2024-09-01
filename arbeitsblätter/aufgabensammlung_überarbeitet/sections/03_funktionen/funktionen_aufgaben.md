@@ -177,5 +177,10 @@ seatsInTheater(16, 11, 5 ,3)
 
 <https://www.codewars.com/kata/588417e576933b0ec9000045/solutions/kotlin>
 
+
+
+
+
+
 ### Aufgabe 
 Schreibe Tests für die Aufgaben in diesem Kapitel.
