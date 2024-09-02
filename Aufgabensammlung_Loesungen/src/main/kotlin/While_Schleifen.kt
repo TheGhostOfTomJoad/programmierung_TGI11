@@ -10,16 +10,24 @@ fun halvingSum(n: Int): Int {
     var acc = 0
     var summand = n
     while (summand >= 1) {
-        acc = acc + n
+        acc = acc + summand
         summand = summand / 2
     }
     return acc
 }
 
 
-//fun nb_year(p0, percent, aug, p): percent = 1 + percent / 100 years = 0
-//while p0 < p: p0 = int(p0* percent) + aug years = years + 1 return
-//years
+
+fun nbYear(p0: Int, percent: Double, aug: Int, p: Int): Int {
+    val percentAsFrac = 1 + percent / 100
+    var years = 0
+    var currentPopulation = p0
+    while (currentPopulation < p) {
+        currentPopulation = (currentPopulation * percentAsFrac).toInt() + aug
+        years = years + 1
+    }
+    return years
+}
 
 fun isSquare(n: Int): Boolean {
     var i = 0
@@ -35,7 +43,7 @@ fun hotpo(n: Int): Int {
     var collatzNumber = n
     var counter = 0
     while (collatzNumber != 1) {
-        collatzNumber = nextCollatz(n)
+        collatzNumber = nextCollatz(collatzNumber)
         counter = counter + 1
     }
     return counter
