@@ -46,7 +46,7 @@ square(7)
 
 ```
 
-<https://www.codewars.com/kata/523b623152af8a30c6000027/train/kotlin>
+<!-- <https://www.codewars.com/kata/523b623152af8a30c6000027/train/kotlin> -->
 
 ### Aufgabe
 Implementiere eine Funktion `doubleInteger`{.kotlin}, die das Doppelte
@@ -91,7 +91,7 @@ nthEven(1)
 nthEven(5)
 ```
 
-<https://www.codewars.com/kata/5933a1f8552bc2750a0000ed/train/kotlin>
+<!-- <https://www.codewars.com/kata/5933a1f8552bc2750a0000ed/train/kotlin> -->
 
 ## Mehrere Parameter
 
@@ -117,7 +117,7 @@ berechnet.
 otherAngle(60,30)
 ```
 
-<https://www.codewars.com/kata/5a023c426975981341000014/train/kotlin>\
+<!-- <https://www.codewars.com/kata/5a023c426975981341000014/train/kotlin>\ -->
 
 ### Aufgabe
 Kopiere und korrigiere den folgenden Code:
@@ -129,7 +129,7 @@ fun add_five(num: Int):Int{
 }
 ```
 
-<https://www.codewars.com/kata/56200d610758762fb0000002/train/kotlin>
+<!-- <https://www.codewars.com/kata/56200d610758762fb0000002/train/kotlin> -->
 
 ### Aufgabe
 Implementiere eine Funktion `past`{.kotlin}, die die Stunden Minuten und
@@ -176,9 +176,6 @@ seatsInTheater(16, 11, 5 ,3)
 ```
 
 <https://www.codewars.com/kata/588417e576933b0ec9000045/solutions/kotlin>
-
-
-
 
 
 

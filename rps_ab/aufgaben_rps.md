@@ -241,7 +241,7 @@ Nutze `showRoundNumber`{.kotlin}!
 Implementiere eine Funktion `showPlayerPoints`{.kotlin}. Dieser
 Funktion wird ein Name als String und eine Punktezahl als Integer
 übergeben. Sie gibt einen String zurück, in dem steht wie viele Punkte
-die Person hat.
+die Person hat. 
 
 ```{.kotlin .cb-nb first_number=1}
 showPlayerPoints("Kevin", 1)
@@ -249,6 +249,28 @@ showPlayerPoints("Kevin", 1)
 ```{.kotlin .cb-nb first_number=1}
 showPlayerPoints("Barbara", 3)
 ```
+
+Beachte, dass im ersten Beispiel `point` und nicht `points` zu sehen ist.
+
+
+## Aufgabe
+Implementiere eine Funktion `computeNewPoints`{.kotlin}. Dieser wird
+der Gewinner der letzten Runde, die Nummer eines Spielers und die
+Punktzahl des Spielers mit dieser Nummer übergeben. Die einzigen
+Möglichkeiten für das erste Argument sind `"1"`{.kotlin}, `"2"`{.kotlin}
+und `"Nobody"`{.kotlin}. Die Funktion gibt die neue Punktzahl des
+Spielers zurück.
+
+```{.kotlin .cb-nb first_number=1}
+computeNewPoints("1", 1, 3)
+```
+```{.kotlin .cb-nb first_number=1}
+computeNewPoints("2", 1, 3)
+```
+```{.kotlin .cb-nb first_number=1}
+computeNewPoints("Nobody", 1, 1)
+```
+
 
 
 ## Aufgabe
@@ -336,23 +358,7 @@ Nutze `showWinnerWithNameHelper`{.kotlin}!
 
 
 
-## Aufgabe
-Implementiere eine Funktion `computeNewPoints`{.kotlin}. Dieser wird
-der Gewinner der letzten Runde, die Nummer eines Spielers und die
-Punktzahl des Spielers mit dieser Nummer übergeben. Die einzigen
-Möglichkeiten für das erste Argument sind `"1"`{.kotlin}, `"2"`{.kotlin}
-und `"Nobody"`{.kotlin}. Die Funktion gibt die neue Punktzahl des
-Spielers zurück.
 
-```{.kotlin .cb-nb first_number=1}
-computeNewPoints("1", 1, 3)
-```
-```{.kotlin .cb-nb first_number=1}
-computeNewPoints("2", 1, 3)
-```
-```{.kotlin .cb-nb first_number=1}
-computeNewPoints("Nobody", 1, 1)
-```
 
 
 # Ausgabe

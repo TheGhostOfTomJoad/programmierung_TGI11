@@ -19,9 +19,6 @@ fun multiple(x: Int) = when {
 
 fun boolToWord(boolean: Boolean): String = if (boolean) "Yes" else "No"
 
-
-
-
 fun bonusTime(salary: Int, bonus: Boolean): String = "$" + (if (bonus) +10 * salary
 else +salary).toString()
 

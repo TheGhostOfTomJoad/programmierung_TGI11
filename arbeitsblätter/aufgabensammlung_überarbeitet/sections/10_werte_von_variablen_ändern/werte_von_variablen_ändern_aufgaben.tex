@@ -1,8 +1,8 @@
 \documentclass[class=scrartcl, crop=false]{standalone}
 \usepackage[
-typ={ohne},
+typ={ab},
 fach=Informatik,
-lerngruppe=SG-J1,
+lerngruppe=TGI11,
 %loesungen=seite,
 %lizenz={cc-by-nc-sa-4}
 module={Aufgaben},
@@ -19,7 +19,7 @@ farbig
 \usepackage[
 %prettyprinter=pygments, %pygopt={style=emacs}
 ]{pythontex}
-
+\title{Variablen neue Werte zuweisen}
 
 \usepackage{hyperref}
 
@@ -55,27 +55,40 @@ farbig
 
 \begin{aufgabe} \noindent
 
+
+
+
 Welche Werte haben die Variablen am Ende?
 \begin{teilaufgaben}
-\teilaufgabe \begin{minted}[]{python}
-x = 3
-y = x
+\teilaufgabe \begin{minted}[]{kotlin}
+var x = 3
+var y = x
 x = 4 * x - x
 y = x - y
 \end{minted}
 
-\teilaufgabe \begin{minted}[]{python}
-x = "hello"
-y = "world"
-z = x
+
+
+\teilaufgabe \begin{minted}[]{kotlin}
+var x = 2
+var y = 5
 x = y
-x = y + " " + x
+y = x
+\end{minted}
+
+
+\teilaufgabe \begin{minted}[]{kotlin}
+var x = "hello"
+val y = "world"
+val z = x
+x = y
+x = z + " " + x
 \end{minted}
 \teilaufgabe
-\begin{minted}{python}
-a = True or False
-b = False and True
-a = a or b
+\begin{minted}{kotlin}
+var a =  || false
+val b = false && true
+a = a || b
 \end{minted}
 
 \end{teilaufgaben}

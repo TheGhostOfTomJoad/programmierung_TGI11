@@ -25,7 +25,7 @@ sayHello("Ada")
 sayHello("Alan Turing")
 ```
 
-<https://www.codewars.com/kata/5625618b1fe21ab49f00001f/train/kotlin>
+<!-- <https://www.codewars.com/kata/5625618b1fe21ab49f00001f/train/kotlin> -->
 
 
 ## Aufgabe
@@ -55,5 +55,5 @@ combineNames("Alan", "Turing")
 combineNames("Grace", "Hopper")
 ```
 
-<https://www.codewars.com/kata/55f73f66d160f1f1db000059/train/kotlin>
+<!-- <https://www.codewars.com/kata/55f73f66d160f1f1db000059/train/kotlin> -->
 

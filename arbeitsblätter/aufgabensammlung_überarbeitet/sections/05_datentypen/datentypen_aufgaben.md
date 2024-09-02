@@ -79,7 +79,7 @@ sumStr("", "2")
 sumStr("", "")
 ```
 
-<https://www.codewars.com/kata/5966e33c4e686b508700002d/kotlin>
+<!-- <https://www.codewars.com/kata/5966e33c4e686b508700002d/kotlin> -->
 
 
 <!-- ## Aufgabe
