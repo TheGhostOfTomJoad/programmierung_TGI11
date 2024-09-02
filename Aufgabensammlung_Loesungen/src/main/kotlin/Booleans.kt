@@ -27,3 +27,8 @@ fun zeroFuel2(distanceToPump: Int, mpg: Int, fuelLeft: Int): Boolean {
 fun checkForFactor(base: Int, factor: Int) = base % factor == 0
 
 fun loveFun(flowerA: Int, flowerB: Int): Boolean = flowerA % 2 != flowerB % 2
+
+
+fun isLeapYear(year: Int) : Boolean {
+    return year % 4 == 0 &&  year % 100 != 0  || year % 400 == 0
+}

@@ -33,6 +33,9 @@ fun checkForFactor(base: Int, factor: Int) = base % factor == 0
 
 fun loveFun(flowerA: Int, flowerB: Int): Boolean = flowerA % 2 != flowerB % 2
 
+fun isLeapYear(year: Int) : Boolean {
+  return year % 4 == 0 &&  year % 100 != 0  || year % 400 == 0
+}
 
 ```
 
@@ -172,3 +175,25 @@ loveFun(4,6)
 
 
 <https://www.codewars.com/kata/555086d53eac039a2a000083/train/kotlin>
+
+### Aufgabe
+
+Schreibe eine Funktion `leapYear`{.kotlin}, die prüft ob ein gegebens Jahr ein Schalctjahr ist.
+  - Alle durch 4 teilbaren Jahre sind Schaltjahre, bis auf die folgende Ausnahme
+  - Ein durch 100 teilbares Jahr ist kein Schlatjahr, bis auf die folgende Ausnahme
+  - Ein durch 400 teilbares Jahr ist ein Schaltjahr 
+
+``` {.kotlin .cb-nb first_number=1}
+isLeapYear(95)
+```
+``` {.kotlin .cb-nb first_number=1}
+isLeapYear(96)
+```
+```{.kotlin .cb-nb first_number=1}
+isLeapYear(100)
+```
+```{.kotlin .cb-nb first_number=1}
+isLeapYear(400)
+```
+
+<https://www.codewars.com/kata/526c7363236867513f0005ca/train/kotlin>
