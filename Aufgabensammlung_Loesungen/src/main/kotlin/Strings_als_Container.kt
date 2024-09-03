@@ -29,6 +29,14 @@ fun isVowel(char: Char) = char == 'a' || char == 'e' || char ==
         'i' || char == 'o' || char == 'u' || char == 'A' || char ==
         'E' || char == 'I' || char == 'O' || char == 'U'
 
+fun getCount(str : String) : Int {
+    var acc = 0
+    for (char in str){acc = acc + if (isVowel(char)) 1 else 0 }
+
+    return acc
+}
+
+
 fun disemvowel(s: String): String {
     var acc = ""
     for (char in s) {

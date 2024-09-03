@@ -37,6 +37,14 @@ fun isVowel(char: Char) = char == 'a' || char == 'e' || char ==
         'i' || char == 'o' || char == 'u' || char == 'A' || char ==
         'E' || char == 'I' || char == 'O' || char == 'U'
 
+fun getCount(str : String) : Int {
+    var acc = 0
+    for (char in str){acc = acc + if (isVowel(char)) 1 else 0 }
+    
+    return acc
+}
+
+
 fun disemvowel(s: String): String {
     var acc = ""
     for (char in s) {
@@ -104,6 +112,20 @@ fun makeComplement(dna : String) : String {
 # Strings als Container
 
 ## Aufgabe
+Schreibe eine Funktion `doubleChar`{.kotlin}. Dieser wird ein String
+übergeben. Sie gibt einen String zurück, in dem alle Buchstaben im
+ursprünglichen String verdoppelt wurden.
+
+``` {.kotlin .cb-nb first_number=1}
+doubleChar("Hello")
+```
+``` {.kotlin .cb-nb first_number=1}
+doubleChar("Bye")
+```
+
+<!-- <https://www.codewars.com/kata/56b1f01c247c01db92000076/train/kotlin> -->
+
+## Aufgabe
 Schreibe eine Funktion `contamination`{.kotlin}. Dieser werden ein
 String und ein einzelner Buchstabe als String übergeben. Sie gibt einen
 String zurück, in dem alle Buchstaben im ursprünglichen String durch den
@@ -132,6 +154,21 @@ removeChar("Bye")
 <https://www.codewars.com/kata/56bc28ad5bdaeb48760009b0/solutions/kotlin>
 
 
+
+## Aufgabe
+Schreibe eine Funktion `getCount`. Diese gibt die Anzahl der Vokale in einem String zurück.
+
+``` {.kotlin .cb-nb first_number=1}
+getCount("abcde")
+```
+``` {.kotlin .cb-nb first_number=1}
+getCount("adfafweadffasdf")
+```
+
+<https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/kotlin>
+
+
+
 ## Aufgabe
 Schreibe eine Funktion `makeComplement`. Diese bekommt eine DNA als String übergeben und invertiert diese.  Dabei werden Buchstaben durch einen komplementären Buchstaben ersetzt. A und T sowie C und G sind komplementär.
 
@@ -142,6 +179,7 @@ makeComplement("ATTCG")
 makeComplement("CGTAG")
 ```
 
+<https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/kotlin>
 
 ## Aufgabe
 Schreibe eine Funktion `replace`. Diese bekommt einen String als Argument übergeben und gibt einen String zurück indem, alle Vokale durch Ausrufezeichen ersetzt wurden.
@@ -156,19 +194,7 @@ replace("Bye")
 
 <https://www.codewars.com/kata/57fb09ef2b5314a8a90001ed/solutions/kotlin>
 
-## Aufgabe
-Schreibe eine Funktion `doubleChar`{.kotlin}. Dieser wird ein String
-übergeben. Sie gibt einen String zurück, in dem alle Buchstaben im
-ursprünglichen String verdoppelt wurden.
 
-``` {.kotlin .cb-nb first_number=1}
-doubleChar("Hello")
-```
-``` {.kotlin .cb-nb first_number=1}
-doubleChar("Bye")
-```
-
-<!-- <https://www.codewars.com/kata/56b1f01c247c01db92000076/train/kotlin> -->
 
 
 ## Aufgabe
@@ -224,10 +250,10 @@ Schreibe eine Funktion `sumDigits`{.kotlin}. Dieser wird eine Zahl als
 Integer übergeben. Sie gibt die Summe der Ziffern in der Zahl zurück.
 
 ``` {.kotlin .cb-nb first_number=1}
-sumDigits(123)
+sumDigits("123")
 ```
 ``` {.kotlin .cb-nb first_number=1}
-sumDigits(51)
+sumDigits("51")
 ```
 
 <!-- <https://www.codewars.com/kata/52f3149496de55aded000410/train/kotlin> -->
