@@ -1,0 +1,398 @@
+\documentclass[a4paper, fontsize = 13, DIV = calc]{scrartcl}
+\usepackage[
+typ={ab},
+fach=Informatik,
+lerngruppe=SG-J1,
+%loesungen=seite,
+%lizenz={cc-by-nc-sa-4}
+module={Aufgaben},
+farbig
+]{schule}
+%\usepackage[libertinus]{fontsetup}
+%\usepackage{tikz}
+%\usepackage{ctable}
+%
+%\usepackage{cochineal}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{scrlayer-scrpage}
+\ifoot{% TODO: \usepackage{graphicx} required
+	
+	\includegraphics[width=0.4\linewidth]{GHSE-Logo}
+	
+}
+%\usepackage{fontspec}
+%\setmonofont{Monoki}
+\usepackage[ngerman]{babel} 
+%\usepackage{polyglossia}
+%\setmainlanguage{ngerman}  % -> "Contents"
+%\setmainlanguage{german}  % -> "Inhaltsverzeichnis"
+%\usepackage[utf8]{inputenc}			% Set encoding
+%\usepackage[T1]{fontenc}
+%\usepackage[default]{fontsetup}
+\usepackage[erewhon]{fontsetup}
+\setmonofont{Ubuntu Mono}%[Scale=0.8]
+%\setmonofont{Iosevka}%[Scale=0.8]
+%\usepackage{polyglossia}
+%\setmainlanguage{ngerman}
+\usepackage{shellesc}
+\ShellEscape{pythontex \jobname.pytxcode }
+%\usepackage{minted}
+\usepackage{pythontex}
+\usepackage{microtype}	
+\usepackage[font=tiny,labelfont=bf]{caption}
+\usepackage{float}
+%\author{Maximilian Hertenstein}
+%\date{\today}
+\title{String-Addition}
+
+
+%\usepackage{svg}
+%\usepackage{ctable}
+\date{}
+
+\newcommand{\expandpyconc}[1]{\expandafter\reallyexpandpyconc\expandafter{#1}}
+\newcommand{\reallyexpandpyconc}[1]{\pyconc{exec(compile(open('#1', 'rb').read(), '#1', 'exec'))}}
+
+\newenvironment{pyconcodeblck}[1]
+{\newcommand{\snippetfile}{snippet-#1.py}
+	\VerbatimEnvironment
+	\begin{VerbatimOut}{\snippetfile}}
+	{\end{VerbatimOut}
+	\expandpyconc{\snippetfile}}
+
+\newcommand{\typesetcode}[1]{\inputpygments{python}{snippet-#1.py}}
+
+
+\hypersetup{hidelinks}
+%\usepackage{ctable}
+%\usepackage{svg}
+%\KOMAoptions{DIV=25}
+%\usepackage[default]{fontsetup}
+\begin{document}
+
+
+
+\begin{pyconcodeblck}{temp}
+def enough_cars(persons, cars):
+	return 5 * cars >= persons
+\end{pyconcodeblck}
+
+
+
+
+
+\begin{aufgabe} \noindent 
+Schreibe eine Funktion \mintinline{python}{enough_cars}. Mit dieser Funktion kann man berechnen, ob genug Autos zur Verfügung stehen um eine Gruppe von Personen zu transportieren. Dieser Funktion werden die Anzahl der Autos und die Anzahl der Personen übergeben. Sie gibt zurück, ob jeder mitgenommen werden kann. Gehe davon aus, dass 5 Personen in ein Auto passen.
+\begin{pyconsole}
+enough_cars(7, 2)
+enough_cars(12, 3)
+enough_cars(6, 1)
+\end{pyconsole}
+\end{aufgabe}
+
+
+
+\newpage
+
+
+
+%\section{Aufgaben zum Kapitel \enquote{Typen, Werte, Ausdrücke, Operatoren}}
+%
+%
+%\begin{aufgabe} \noindent
+%Erkläre die folgenden Begriffe:
+%\begin{teilaufgaben}
+%\teilaufgabe Operator
+%\teilaufgabe Operand
+%\teilaufgabe Ausdruck
+%\teilaufgabe Typ
+%\teilaufgabe Typfehler
+%\teilaufgabe Wert
+%\teilaufgabe Statement
+%\teilaufgabe Befehl
+%\end{teilaufgaben}
+%\end{aufgabe}
+%
+%\begin{aufgabe} \noindent
+%Beantworte für jeden Ausdruck ob er fehlerfrei ausgewertet werden kann. Bestimme für jeden Ausdruck, der ausgewertet werden kann, den Wert und den Typ.
+%\begin{teilaufgaben}
+%		\teilaufgabe \mintinline{python}{1 + 2 * (1000 - 33)}
+%		\teilaufgabe \mintinline{python}{"1" + "2" + "3"}
+%		\teilaufgabe \mintinline{python}{"4" + 5 + "6"}
+%\end{teilaufgaben}
+%
+%\end{aufgabe}
+%
+%
+%\section{Aufgaben zum Kapitel \enquote{Funktionen}}
+%
+%\begin{aufgabe} \noindent
+%	Wie kann der Ausdruck \mintinline{python}{7 + 8 + "9"} mit Funktionen zur Typkonversion angepasst werden, damit dass Ergebnis
+%	\begin{teilaufgaben}
+%		\teilaufgabe \mintinline{python}{24} ist?
+%		\teilaufgabe \mintinline{python}{"789"} ist?
+%	\end{teilaufgaben}
+%\end{aufgabe}
+%
+%\section{Aufgaben zum Kapitel \enquote{Skriptmodus}}
+%\begin{aufgabe} \noindent
+%
+%Schreibe ein Skript, das in einer Zeile deinen Vornamen und einer zweiten Zeile deinen Nachnamen ausgibt.
+%\end{aufgabe}
+%
+%\section{Aufgaben zum Kapitel \enquote{Funktionen definieren}}
+%
+%Schreibe die Lösungen der folgenden Aufgaben in ein Skript mit dem Namen \texttt{functions\_1.py}\\
+%
+%
+%\achtung{Verwende bei jeder Funktion die vollständige und korrekte Typannotation!}\\
+%
+%
+%
+%%\begin{aufgabe} \noindent
+%%	Schreibe eine Funktion \mintinline{python}{good_morning}, die einen Namen als String übergeben bekommt und der Person auf der Konsole \enquote{Guten Morgen!} wünscht.
+%%\end{aufgabe}
+%
+%\begin{aufgabe} \noindent
+%Schreibe eine Funktion \mintinline{python}{good_morning}, die einen Namen als String übergeben bekommt und der Person auf der Konsole \enquote{Guten Morgen!} wünscht.
+%\end{aufgabe}
+%
+%\begin{pyconsole}
+%good_morning("Alan Turing")
+%\end{pyconsole}
+%
+%\begin{aufgabe} \noindent
+%\begin{teilaufgaben}
+%	\teilaufgabe Schreibe eine Funktion \mintinline{python}{hours_to_minutes}, die ein Integer nimmt, das eine Zeit in Stunden angibt und die selbe Zeit in Minuten zurückgibt.
+%	\teilaufgabe Schreibe eine Funktion \mintinline{python}{days_to_hours}, die ein Integer nimmt, das eine Zeit in Tagen angibt und die selbe Zeit in Stunden zurückgibt.
+%	\teilaufgabe Schreibe eine Funktion \mintinline{python}{days_to_minutes}, die ein Integer nimmt, das eine Zeit in Tagen angibt und die selbe Zeit in Minuten zurückgibt. Nutze die vorherigen Teilaufgaben!
+%\end{teilaufgaben}
+%\end{aufgabe}
+%
+%\begin{pyconsole}
+%hours_to_minutes(13)
+%days_to_hours(2)
+%days_to_minutes(1)
+%\end{pyconsole}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%\newpage
+%\section{Mehr Aufgaben}
+%
+%\subsection{Integer}
+%
+%
+%
+%
+%
+%
+%\url{https://www.codewars.com/kata/58261acb22be6e2ed800003a/train/python}
+%
+%
+%\url{https://www.codewars.com/kata/55f73be6e12baaa5900000d4/train/python}\\
+%
+%
+%\subsection{Strings}
+%
+%
+%
+%
+%
+%
+%\url{https://www.codewars.com/kata/544675c6f971f7399a000e79/train/python}\\
+%
+%
+%
+%\url{https://www.codewars.com/kata/5265326f5fda8eb1160004c8/train/python}\\
+%
+%
+%
+%\subsection{Booleans}
+%
+%
+%\url{https://www.codewars.com/kata/551b4501ac0447318f0009cd/train/python}\\
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%\subsection{Modulo}
+%\url{https://www.codewars.com/kata/555086d53eac039a2a000083/train/python}\\
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%\subsection{Floats}
+%\url{https://www.codewars.com/kata/57a429e253ba3381850000fb/train/python}\\
+%
+%\section{Bedingungen}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%%\url{https://www.codewars.com/kata/57089707fe2d01529f00024a/train/python}\\
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%%\url{https://www.codewars.com/kata/57e3f79c9cb119374600046b/train/python}\\
+%
+%
+%\section{For-Schleifen}
+%
+%\subsection{Grundlagen}
+%
+%
+%
+%
+%\url{https://www.codewars.com/kata/55caef80d691f65cb6000040/train/python}\\
+%
+%% \url{https://www.codewars.com/kata/528e95af53dcdb40b5000171/train/python}\\
+%
+%\url{https://www.codewars.com/kata/57241e0f440cd279b5000829/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/555eded1ad94b00403000071/train/python}\\
+%
+%
+%
+%\subsection{Sehr anspruchsvoll}
+%
+%
+%
+%
+%%\url{https://www.codewars.com/kata/56269eb78ad2e4ced1000013/train/python}\\
+%
+%
+%
+%
+%%\url{https://www.codewars.com/kata/59a8570b570190d313000037}\\
+%
+%%\url{}\\
+%%\url{}\\
+%
+%
+%
+%\section{While-Schleifen}
+%
+%\subsection{Grundlagen}
+%%\url{https://www.codewars.com/kata/534d0a229345375d520006a0/train/python}\\
+%
+%\url{https://www.codewars.com/kata/57be674b93687de78c0001d9/train/python}\\
+%
+%% \url{https://www.codewars.com/kata/563b662a59afc2b5120000c6/train/python}\\
+%
+%
+%
+%\url{https://www.codewars.com/kata/58941fec8afa3618c9000184/train/python}\\
+%
+%
+%\url{https://www.codewars.com/kata/55f2b110f61eb01779000053/train/python}\\
+%
+%\subsection{Sehr anspruchsvoll}
+%
+%\url{https://www.codewars.com/kata/588425ee4e8efb583d000088/train/python}\\
+%
+%
+%\url{https://www.codewars.com/kata/577a6e90d48e51c55e000217/train/python}\\
+%
+%\url{https://www.codewars.com/kata/5286b2e162056fd0cb000c20/train/python}\\
+%
+%
+%
+%\url{https://www.codewars.com/kata/56d46b8fda159582e100001b/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/57241e0f440cd279b5000829/train/python}\\
+%
+%\url{https://www.codewars.com/kata/56ba65c6a15703ac7e002075/train/python}\\
+%
+%
+%
+%
+%
+%
+%%\url{https://www.codewars.com/kata/5a58d46cfd56cb4e8600009d/train/python}\\
+%
+%\url{https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/python}\\
+%
+%\url{https://www.codewars.com/kata/562f91ff6a8b77dfe900006e/train/python}\\
+%
+%
+%
+%\section{Variablen}
+%\url{https://www.codewars.com/kata/5612e743cab69fec6d000077/train/python}\\
+%
+%
+%\section{Strings - Iteration}
+%\url{https://www.codewars.com/kata/57eae20f5500ad98e50002c5/train/python}\\
+%
+%\url{https://www.codewars.com/kata/596fba44963025c878000039/train/python}\\
+%
+%\url{https://www.codewars.com/kata/56b1f01c247c01db92000076/train/python}\\
+%
+%\url{https://www.codewars.com/kata/56bf3287b5106eb10f000899/train/python}\\
+%
+%\url{https://www.codewars.com/kata/52f3149496de55aded000410/train/python}\\
+%
+%%\url{}\\
+%\section{Listen}
+%
+%\url{https://www.codewars.com/kata/52a723508a4d96c6c90005ba/train/python}\\
+%
+%\url{https://www.codewars.com/kata/57cc975ed542d3148f00015b/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/511f0fe64ae8683297000001/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/511f0fe64ae8683297000001/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/525c1a07bb6dda6944000031/train/python}\\
+%
+%
+%%\url{https://www.codewars.com/kata/57cc975ed542d3148f00015b/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/5951d30ce99cf2467e000013/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/57f781872e3d8ca2a000007e/train/python}\\
+%
+%%\url{https://www.codewars.com/kata/5266876b8f4bf2da9b000362}\\
+%%\url{}\\
+
+
+\end{document}
