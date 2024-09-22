@@ -1,0 +1,147 @@
+\documentclass[DIV = 11]{scrartcl}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+
+\usepackage[]{microtype}
+
+\usepackage[
+typ=ab,
+fach=Informatik,
+lerngruppe=TGI11,
+farbig,
+namensfeldAnzeigen,
+%datumAnzeigen,
+seitenzahlen = auto,
+loesungen = seite,
+module= {Papiertypen}
+]{schule}
+\ifoot{% TODO: \usepackage{graphicx} required
+
+		\includegraphics[width=0.3\linewidth]{GHSE-Logo}
+
+}
+\usepackage{fourier-otf}
+\title{Ausdrücke, Variablen und Funktionen}
+\usepackage{amsthm, amsmath}
+\newtheorem{theorem}{Gesetz}
+\newtheorem{regel}{Regel}
+\newtheorem*{bsp}{Beispiel}
+\newtheorem*{schreibweise}{Schreibweise}
+\renewcommand*{\proofname}{Herleitung}
+\AtBeginDocument{\renewcommand\proofname{Herleitung}}
+\usepackage{minted}
+\usepackage{amsmath,fontspec,newunicodechar}
+
+
+\NewDocumentCommand{\skull}{}{%
+  \text{\skullfont\symbol{"1F571}}%
+}
+\newunicodechar{🕱}{\skull}
+\begin{document}
+
+\begin{aufgabe}
+Finde den Fehler und korrigiere ihn:
+
+\begin{teilaufgaben}
+\teilaufgabe \begin{minted}{kotlin}
+x = 3
+\end{minted}
+
+\teilaufgabe \begin{minted}{kotlin}
+fun square = x * x
+\end{minted}
+
+\teilaufgabe \begin{minted}{kotlin}
+fun square(Int): Int * Int
+\end{minted}
+
+\teilaufgabe \begin{minted}{kotlin}
+fun triple(x: Int): Int = return 3 * x
+\end{minted}
+
+\teilaufgabe \begin{minted}{kotlin}
+fun sum(x: Int): Int = a + b + c
+
+val sum_1_2 = sum(1, 2)
+\end{minted}
+\teilaufgabe 
+
+\begin{minted}{kotlin}
+fun createVarA(x: Int): Int {
+    val a = 5
+    return x
+}
+
+val twoTimesA = 2 * a
+\end{minted}
+\end{teilaufgaben}
+
+\end{aufgabe}
+\begin{aufgabe}
+Gib an welche globalen Variablen am Ende der Ausführung definiert sind und welche Werte diese haben
+\end{aufgabe}
+\begin{teilaufgaben}
+\teilaufgabe \begin{minted}{kotlin}
+val x = 7
+
+val y = 2 * x
+\end{minted}
+
+
+
+\teilaufgabe \begin{minted}{kotlin}
+fun cube(n: Int): Int = n * n * n
+
+val x = 4
+
+val y = 3 * cube(x)
+\end{minted}
+
+\teilaufgabe \begin{minted}{kotlin}
+fun cube(x: Int): Int = x * x * x
+
+val x = 4
+
+val y = 3 * cube(2)
+\end{minted}
+
+\teilaufgabe \begin{minted}{kotlin}
+fun powerFour(x: Int): Int {
+    val xPowerTwo = x * x
+    return xPowerTwo * xPowerTwo
+}
+
+val ThreePowerFour = powerFour(3)
+\end{minted}
+\teilaufgabe \begin{minted}{kotlin}
+val x = 2
+
+val xPowerTwo = x * x
+
+fun powerFour(x: Int): Int {
+    val xPowerTwo = x * x
+    return xPowerTwo * xPowerTwo
+}
+
+val threePowerFour = powerFour(3)
+\end{minted}
+
+\teilaufgabe \begin{minted}{kotlin}
+fun square(x: Int) = x * x
+
+fun sumSquares(x: Int, y: Int) : Int {
+    xSquared = square(x)
+    ySquared = square(y)
+    return xSquared + ySquared
+}
+
+val x = sumSquares(2, 3)
+\end{minted}
+
+
+
+
+\end{teilaufgaben}
+
+
+\end{document}
