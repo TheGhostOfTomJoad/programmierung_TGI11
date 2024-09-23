@@ -163,4 +163,4 @@ fun playRPS(): Unit {
 }
 
 fun main(){
-    rps.playRPS()}
+    rps.playOneRound(2,3,"Alan", "Grace")}

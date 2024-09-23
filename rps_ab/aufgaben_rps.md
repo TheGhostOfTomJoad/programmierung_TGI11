@@ -7,6 +7,7 @@ codebraid:
 
 ```{.kotlin .cb-run}
 
+package rpsv2
 
 fun greetPlayerAskChoiceHelper(playerName: String): String =  "Hey " + playerName + "! Please choose rock, paper or scissors!"
 
@@ -22,6 +23,14 @@ fun printRoundNumber(currentRound: Int, roundsToPlay: Int) =
 
 fun showPlayerPoints(name: String, points: Int): String =
     name + " has " + points.toString() + " " + if (points == 1) "point" else "points"
+
+
+fun showPlayersPoints(player1Name: String,
+                      player2Name: String,
+                      player1Points: Int,
+                      player2Points: Int): String = showPlayerPoints(player1Name,player1Points) + "\n" + showPlayerPoints(player2Name,player2Points)
+
+
 
 fun computeRoundWinner(p1: String, p2: String): String =
     when {
@@ -73,31 +82,31 @@ fun computeNewPoints(roundWinner: String, playerNumber: Int, currentPoints: Int)
     if (playerNumber.toString() == roundWinner) currentPoints + 1 else currentPoints
 
 // ----------------------- Ausgabe
-fun printRoundWinnerWithName(roundWinner: String, player1Name: String, player2Name: String): Unit {
-    println(
-        showRoundWinnerWithName(
-            roundWinner, player1Name, player2Name
-        )
-    )
-}
+//fun printRoundWinnerWithName(roundWinner: String, player1Name: String, player2Name: String): Unit {
+//    println(
+//        showRoundWinnerWithName(
+//            roundWinner, player1Name, player2Name
+//        )
+//    )
+//}
+//
+//fun printPlayersPoints(
+//    player1Name: String, player2Name: String, player1Points: Int, player2Points: Int
+//): Unit {
+//    println(showPlayerPoints(player1Name, player1Points))
+//    println(showPlayerPoints(player2Name, player2Points))
+//}
 
-fun printPlayersPoints(
-    player1Name: String, player2Name: String, player1Points: Int, player2Points: Int
-): Unit {
-    println(showPlayerPoints(player1Name, player1Points))
-    println(showPlayerPoints(player2Name, player2Points))
-}
-
-fun printGameWinnerWithName(
-    player1Name: String, player2Name: String, player1Points: Int, player2Points: Int
-): Unit {
-    println(
-        showGameWinnerWithName(
-            player1Name, player2Name,
-            player1Points, player2Points,
-        )
-    )
-}
+//fun printGameWinnerWithName(
+//    player1Name: String, player2Name: String, player1Points: Int, player2Points: Int
+//): Unit {
+//    println(
+//        showGameWinnerWithName(
+//            player1Name, player2Name,
+//            player1Points, player2Points,
+//        )
+//    )
+//}
 // ------------- Eingabe
 
 
@@ -123,7 +132,7 @@ fun playOneRound(
     val player1Decision = greetPlayerAskChoice(player1Name)
     val player2Decision = greetPlayerAskChoice(player2Name)
     val roundWinner = computeRoundWinner(player1Decision, player2Decision)
-    printRoundWinnerWithName(roundWinner, player1Name, player2Name)
+    println(showRoundWinnerWithName(roundWinner, player1Name, player2Name))
     return roundWinner
 }
 // ----------------------- For-Schleifen
@@ -144,15 +153,15 @@ fun playRPSHelper(
         player2Points = computeNewPoints(
             winnerOfCurrentRound, 2, player2Points
         )
-        printPlayersPoints(
+        println(showPlayersPoints(
             player1Name, player2Name,
             player1Points, player2Points
-        )
+        ))
     }
-    printGameWinnerWithName(
+    println(showGameWinnerWithName(
         player1Name, player2Name,
         player1Points, player2Points
-    )
+    ))
 }
 
 fun playRPS(): Unit {
@@ -161,6 +170,7 @@ fun playRPS(): Unit {
     val roundsToPlay = aksRounds()
     playRPSHelper(roundsToPlay, player1Name, player2Name)
 }
+
 
 
 
@@ -253,6 +263,21 @@ showPlayerPoints("Barbara", 3)
 Beachte, dass im ersten Beispiel `point` und nicht `points` zu sehen ist.
 
 
+
+
+## Aufgabe
+Implementiere eine Funktion `showPlayersPoints`{.kotlin}. Dieser
+Funktion werden die Namen der Spieler als Strings und ihre Punktezahlen als Integer
+übergeben. Sie gibt einen String zurück, in dem steht wie viele Punkte
+die ide Spieler haben. Ziwschen beiden Information steht das Zeichen `\n`.
+
+```{.kotlin .cb-nb first_number=1}
+showPlayersPoints("Kevin", "Barbara", 1,  3)
+```
+
+
+Nutze `showPlayerPoints`{.kotlin}!
+
 ## Aufgabe
 Implementiere eine Funktion `computeNewPoints`{.kotlin}. Dieser wird
 der Gewinner der letzten Runde, die Nummer eines Spielers und die
@@ -318,7 +343,7 @@ showWinnerWithNameHelper("Nobody", "Grace", "Alan", false)
 
 
 ## Aufgabe
-eine Funktion `showRoundWinnerWithName`{.kotlin}. Dieser wird
+Implementiere eine Funktion `showRoundWinnerWithName`{.kotlin}. Dieser wird
 übergeben wer das Spiel gewonnen hat. Die einzigen Möglichkeiten sind
 `"1"`{.kotlin}, `"2"`{.kotlin} und `"Nobody"`{.kotlin}. Außerdem werden
 die Namen der Spieler übergeben. Die Funktion gibt einen String zurück
@@ -361,62 +386,6 @@ Nutze `showWinnerWithNameHelper`{.kotlin}!
 
 
 
-# Ausgabe
-
-## Aufgabe
-Schreibe eine Funktion `printRoundWinnerWithName`{.kotlin}. Diese
-funktioniert genau wie `showRoundWinnerWithName`{.kotlin}. Sie gibt
-den Strings aber an der Konsole aus und nicht zurück.
-
-```{.kotlin .cb-nb first_number=1}
-printRoundWinnerWithName("1", "Grace", "Alan")
-```
-```{.kotlin .cb-nb first_number=1}
-printRoundWinnerWithName("2", "Grace", "Alan")
-```
-```{.kotlin .cb-nb first_number=1}
-printRoundWinnerWithName("Nobody", "Grace", "Alan")
-```
-
-Nutze `showRoundWinnerWithName`{.kotlin}!
-
-
-
-## Aufgabe
-Implementiere eine Funktion `printPlayersPoints`{.kotlin}. Dieser
-Funktion werden zwei Spielernamen als Strings und deren Punktezahl als
-Integer übergeben. Sie gibt an der Konsole aus welcher Spieler wie viele
-Punkte hat.
-
-```{.kotlin .cb-nb first_number=1}
-printPlayersPoints("Kevin", "Barbara", 1, 5)
-```
-```{.kotlin .cb-nb first_number=1}
-printPlayersPoints("Ali", "Maria", 1, 5)
-```
-
-Nutze `showPlayersPoints`{.kotlin}!
-
-
-## Aufgabe
-Implementiere eine Funktion `printGameWinnerWithName`{.kotlin}.
-Dieser Funktion werden zwei Spielernamen als Strings und deren
-Punktezahl als Integer übergeben. Sie gibt das Endergebniss an der
-Konsole aus.
-
-```{.kotlin .cb-nb first_number=1}
-printGameWinnerWithName("Kevin", "Barbara", 1, 5)
-```
-```{.kotlin .cb-nb first_number=1}
-printGameWinnerWithName("Ali", "Maria", 6, 5)
-```
-```{.kotlin .cb-nb first_number=1}
-printGameWinnerWithName("Ali", "Maria", 6, 6)
-```
-
-Nutze `showGameWinnerWithName`{.kotlin}!
-
-
 # Eingabe
 
 ## Aufgabe
@@ -455,8 +424,8 @@ werden die aktuelle Rundenzahl und die Zahl der Runden, die gespielt
 werden, übergeben. Sie gibt diese beiden Informationen in der Konsole
 aus. Der Funktion werden auch die Namen der Spieler übergeben. Sie
 spricht die Spieler mit ihren Namen an und bittet sie Schere, Stein oder
-Papier einzugeben. Das Ergebnis dieser Runde wird anschließend aus- und
-gegeben. Hierbei wird der Name des Gewinners genutzt.
+Papier einzugeben. Das Ergebnis dieser Runde wird anschließend ausgegeben. 
+Hierbei wird der Name des Gewinners genutzt.
 
 Es wird auch zurückgegeben, wer gewonnen hat. Die einzig möglichen
 Rückgabewerte sind `"1"`{.kotlin}, `"2"`{.kotlin} und
@@ -464,8 +433,8 @@ Rückgabewerte sind `"1"`{.kotlin}, `"2"`{.kotlin} und
 
 <!-- ![image](playOneRound){width="80%"}
 ``` -->
-Nutze `printRoundNumber`{.kotlin}, `greetPlayerAskChoice`{.kotlin},
- `computeRoundWinner`{.kotlin} und `printRoundWinnerWithName`{.kotlin}!
+Nutze `showRoundNumber`{.kotlin}, `greetPlayerAskChoice`{.kotlin},
+ `computeRoundWinner`{.kotlin} und `showRoundWinnerWithName`{.kotlin}!
  
 
 
@@ -487,7 +456,7 @@ Hey Alan! Please choose rock, paper or scissors!
 
 
 Nutze `playOneRound`{.kotlin}, `computeNewPoints`{.kotlin} und
- `printPlayersPoints`{.kotlin}!
+ `showPlayersPoints`{.kotlin}!
  
 
 
