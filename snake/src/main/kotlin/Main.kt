@@ -15,11 +15,8 @@ class SnakeController {
         while (!snakeModel.gameIsWon() && !snakeModel.gameLost()) {
 
             val input = snakeUI.getPressedKey()
-            val newDirection = input?.let { Direction.fromString(it) }
-            if (newDirection != null) {
-                snakeModel.setSnakeDirection(newDirection)
-            }
-
+            val newDirection = pressedKeyToV2(input)
+            snakeModel.setSnakeDirection(newDirection)
             snakeModel.playRound()
             snakeUI.println(snakeModel.toString())
 
@@ -27,4 +24,6 @@ class SnakeController {
         //snakeUI.showEndScreen(gameIsLost,snakeModel.snakeLen())
         snakeUI.close()
     }
+
+
 }
