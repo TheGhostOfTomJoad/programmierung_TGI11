@@ -30,14 +30,14 @@ farbig
 %\usepackage[utf8]{inputenc}			% Set encoding
 %\usepackage[T1]{fontenc}
 %\usepackage[default]{fontsetup}
-\usepackage[erewhon]{fontsetup}
-\setmonofont{Ubuntu Mono}%[Scale=0.8]
+\usepackage[default]{fontsetup}
+\setmonofont{Ubuntu Mono Regular}%[Scale=0.8]
 %\setmonofont{Iosevka}%[Scale=0.8]
 %\usepackage{polyglossia}
 %\setmainlanguage{ngerman}
 \usepackage{shellesc}
 \ShellEscape{pythontex \jobname.pytxcode }
-%\usepackage{minted}
+\usepackage{minted}
 \usepackage{pythontex}
 \usepackage{microtype}	
 \usepackage[font=tiny,labelfont=bf]{caption}
@@ -83,7 +83,7 @@ def enough_cars(persons, cars):
 
 
 \begin{aufgabe} \noindent 
-Schreibe eine Funktion \mintinline{python}{enough_cars}. Mit dieser Funktion kann man berechnen, ob genug Autos zur Verfügung stehen um eine Gruppe von Personen zu transportieren. Dieser Funktion werden die Anzahl der Autos und die Anzahl der Personen übergeben. Sie gibt zurück, ob jeder mitgenommen werden kann. Gehe davon aus, dass 5 Personen in ein Auto passen.
+Schreibe eine Funktion \mintinline{python}{enough_cars}. Mit dieser Funktion kann man berechnen, ob genug Autos zur Verfügung stehen um eine Gruppe von Personen zu transportieren. Dieser Funktion werden die Anzahl der Personen  und die Anzahl der Autos übergeben. Sie gibt zurück, ob jeder mitgenommen werden kann. Gehe davon aus, dass 5 Personen in ein Auto passen.
 \begin{pyconsole}
 enough_cars(7, 2)
 enough_cars(12, 3)

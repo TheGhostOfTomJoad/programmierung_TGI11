@@ -1,34 +1,33 @@
 package org.example
 
 
-class Snake {
-    private var direction = V2(0, 1)
-    private var snake = listOf(V2(5, 1))
+class Snake(
+    private val direction: V2 = V2(0, 1),
+    val snakePositions: List<V2> = listOf(V2(5, 1)))
+{
+    fun head(): V2 = snakePositions[0]
 
-    fun head(): V2 = snake[0]
+    fun tail(): List<V2> = snakePositions.drop(1)
 
-    fun tail(): List<V2> = snake.drop(1)
-
-    fun move(appleEaten: Boolean) {
-        snake = computeNewSnakePositions(snake, direction, appleEaten)
+    fun move(appleEaten: Boolean): Snake {
+        return Snake(direction, computeNewSnakePositions(snakePositions, direction, appleEaten))
     }
 
     fun tailBitten(): Boolean = tail().contains(head())
 
-    fun size(): Int = snake.size
+    fun size(): Int = snakePositions.size
 
-    fun contains(v: V2): Boolean = snake.contains(v)
+    fun contains(v: V2): Boolean = snakePositions.contains(v)
 
-    fun setDirection(newDirection: V2?) {
-        direction = computeNewDirection(direction, newDirection)
+    fun setDirection(newDirection: V2?): Snake {
+        return Snake(computeNewDirection(direction, newDirection), snakePositions)
     }
 
-    fun toList(): List<V2> = snake
 
 }
 
 data class SnakeModel(val rows: Int, val cols: Int) {
-    private val snake: Snake = Snake()
+    private var snake: Snake = Snake()
     private var appleEatenLastRound = false
     private var appleCoordinates: V2 = V2(4, 4)
 
@@ -41,13 +40,13 @@ data class SnakeModel(val rows: Int, val cols: Int) {
     fun gameLost(): Boolean = tailBitten() || !headIsOnBoard()
 
     private fun placeNewApple() {
-        appleCoordinates = generateRandomNotBlockedCoordinates(snake.toList(), rows, cols)
+        appleCoordinates = generateRandomNotBlockedCoordinates(snake.snakePositions, rows, cols)
     }
 
     private fun appleEatenThisRound(): Boolean = snake.head() == appleCoordinates
 
     fun playRound() {
-        snake.move(appleEatenLastRound)
+        snake = snake.move(appleEatenLastRound)
         appleEatenLastRound = appleEatenThisRound()
         if (appleEatenLastRound) {
             placeNewApple()
@@ -59,6 +58,6 @@ data class SnakeModel(val rows: Int, val cols: Int) {
     }
 
     fun setSnakeDirection(direction: V2?) {
-        snake.setDirection(direction)
+        snake =  snake.setDirection(direction)
     }
 }

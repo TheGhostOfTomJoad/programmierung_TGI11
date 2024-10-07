@@ -175,7 +175,7 @@ Nutze für deine Lösung mindestens zwei lokale Variablen.
 seatsInTheater(16, 11, 5 ,3)
 ```
 
-<https://www.codewars.com/kata/588417e576933b0ec9000045/solutions/kotlin>
+<https://www.codewars.com/kata/588417e576933b0ec9000045/train/kotlin>
 
 
 

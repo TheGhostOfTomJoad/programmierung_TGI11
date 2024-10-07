@@ -1,0 +1,217 @@
+\documentclass[DIV = 11]{scrartcl}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+
+\usepackage[]{microtype}
+
+\usepackage[
+typ=ab,
+fach=Informatik,
+lerngruppe=TGI11,
+farbig,
+namensfeldAnzeigen,
+%datumAnzeigen,
+seitenzahlen = auto,
+loesungen = seite,
+module= {Papiertypen}
+]{schule}
+\ifoot{% TODO: \usepackage{graphicx} required
+
+		\includegraphics[width=0.3\linewidth]{GHSE-Logo}
+
+}
+\usepackage{fourier-otf}
+\title{Datentypen}
+\usepackage{amsthm, amsmath}
+\newtheorem{theorem}{Gesetz}
+\newtheorem{regel}{Regel}
+\newtheorem*{bsp}{Beispiel}
+\newtheorem*{schreibweise}{Schreibweise}
+\renewcommand*{\proofname}{Herleitung}
+\AtBeginDocument{\renewcommand\proofname{Herleitung}}
+\usepackage{minted}
+\usepackage{amsmath,fontspec,newunicodechar}
+
+
+\NewDocumentCommand{\skull}{}{%
+  \text{\skullfont\symbol{"1F571}}%
+}
+\newunicodechar{🕱}{\skull}
+\begin{document}
+
+\begin{aufgabe}
+Bestimme den Wert des Ausdrucks.
+\begin{teilaufgaben}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+2 * 5 < 12
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+10 < 10
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+8 <= 8
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+5 < 3
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+2 < 3
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+5 <= 6
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+-1 * -1 == 1
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+"hello" + "world" != "hello world"
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+8 > 2 * 4
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+7 > 2 * 4
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+10 > 3 * 3
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+10 >= 3 * 3
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+10 >= 5 * 2
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+10 > 5 * 2
+\end{minted}
+\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}
+Welche globalen Variablen sind nach der Ausführung definiert. Welchen Typ und welchen Wert haben diese?
+
+\begin{teilaufgaben}
+
+\teilaufgabe \begin{minted}{Kotlin}
+val a = 2 * 3
+
+val b = 3 * 3
+
+val c = a + 3 <= b
+
+val d = c == true
+\end{minted}
+
+\teilaufgabe \begin{minted}{Kotlin}
+val distanceInMeter = 3
+
+val distanceInCentiMeter = 300
+
+fun meterToMillimetes (distanceInMeter:Int): Int {
+    val distanceInCentiMeter = 100 * distanceInMeter
+    return 10 * distanceInCentiMeter 
+}	
+
+val x = meterToMillimetes(2) > distanceInCentiMeter 
+\end{minted}
+
+\teilaufgabe \begin{minted}{Kotlin}
+fun firstIsAtLeastFiveTimesSecond(x: Int, y:Int): Bool =  x >= 5 * y
+
+val x = 21
+
+val y = 4
+
+val z = firstIsAtLeastFiveTimesSecond(y, x)
+\end{minted}
+\end{teilaufgaben}
+
+
+\end{aufgabe}
+
+
+\begin{aufgabe}
+Welche Werte haben die Ausdrücke!
+\begin{teilaufgaben}
+\teilaufgabe \begin{minted}[]{Kotlin}
+3 > 2 || 4 < 3
+\end{minted}
+
+\teilaufgabe \begin{minted}[]{Kotlin}
+3 > 2 || false
+\end{minted}
+
+\teilaufgabe \begin{minted}[]{Kotlin}
+3 > 2 && 4 < 3
+\end{minted}
+
+\teilaufgabe \begin{minted}[]{Kotlin}
+(!(3 > 2) && 4 < 3)
+\end{minted}
+
+\teilaufgabe \begin{minted}[]{Kotlin}
+!(3 > 2 && 4 < 3)
+\end{minted}
+
+\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}
+Welche globalen Variablen sind nach der Ausführung definiert.
+\begin{teilaufgaben}
+\teilaufgabe \begin{minted}[]{Kotlin}
+val x = 3
+
+val y = 3 < 4
+
+val z = y  &&  !(x != 3)
+\end{minted}
+
+\teilaufgabe \begin{minted}[]{Kotlin}
+fun ordered(x: Int, y: Int, z: Int): Bool = x <= y and y <= z 
+
+val z = 3
+
+val x = 1
+
+val y = 2
+
+val result = ordered(z, x, y)
+\end{minted}
+
+
+\end{teilaufgaben}
+
+
+\end{aufgabe}
+
+
+\end{document}

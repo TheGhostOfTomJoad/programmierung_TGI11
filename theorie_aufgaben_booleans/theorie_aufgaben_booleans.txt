@@ -1,0 +1,111 @@
+Was ist der Wert des Ausdrucks?
+
+2 * 5 < 12
+
+10 < 10
+
+8 <= 8
+
+5 < 3
+
+2 < 3
+
+5 <= 6
+
+-1 * -1 == 1
+
+"hello" + "world" != "hello world"
+
+
+8 > 2 * 4
+
+7 > 2 * 4
+
+10 > 3 * 3
+
+10 >= 3 * 3
+
+10 >= 5 * 2
+
+10 > 5 * 2
+
+
+Welche gloabalen Variablen sind am Ende definiert?
+
+val a = 2 * 3
+
+val b = 3 * 3
+
+val c = a + 3 <= b
+
+val d = c == True
+
+--------------------------------------
+
+val distanceInMeter = 3
+
+val distanceInCentiMeter = 300
+
+fun meterToMillimetes (distanceInMeter:Int): Int {
+	val distanceInCentiMeter = 100 * distanceInMeter
+	return 10 * distanceInCentiMeter 
+}	
+
+val x = meterToMillimetes(2) > distanceInCentiMeter 
+
+
+--------------------------------------
+
+fun firstIsAtLeastFiveTimesSecond(x: Int, y:Int): Bool =  x >= 5 * y
+
+val x = 21
+
+val y = 4
+
+val z = firstIsAtLeastFiveTimesSecond(y, x)
+
+
+
+
+Welche Werte haben die Ausdrücke
+
+3 > 2 || 4 < 3
+
+3 > 2 || false
+
+
+3 > 2 && 4 < 3
+
+(!(3 > 2) && 4 < 3)
+
+!(3 > 2 && 4 < 3)
+
+
+Welche globalen Variablen sind am Ende des Blocks definiert.
+
+
+val x = 3
+
+val y = 3 < 4
+
+val z = y  &&  !(x != 3)
+
+
+
+
+fun ordered(x: Int, y: Int, z: Int): Bool = x <= y and y <= z 
+
+val z = 3
+
+val x = 1
+
+val y = 2
+
+val result = ordered(z, x, y)
+
+
+
+
+
+
+  

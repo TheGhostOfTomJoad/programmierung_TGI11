@@ -1,8 +1,17 @@
 package org.example
 
+import jlineUI.JlineUI
+
+
 fun main() {
     val snakeController = SnakeController()
     snakeController.playGame()
+//    val snakeUI = SnakeUI()
+//    snakeUI.println("hello world!")
+//    snakeUI.println("hello mars!")
+//    snakeUI.println("hello mars!")
+//    snakeUI.println("hello mars!")
+
 
 }
 

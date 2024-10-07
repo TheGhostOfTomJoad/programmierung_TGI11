@@ -11,7 +11,7 @@ package rpsv2
 
 fun greetPlayerAskChoiceHelper(playerName: String): String =  "Hey " + playerName + "! Please choose rock, paper or scissors!"
 
-fun showRoundNumber(currentRound: Int, roundsToPlay: Int): String = "Round " + currentRound.toString() + " of " + roundsToPlay.toString()
+fun showRoundNumber(currentRound: Int, roundsToPlay: Int): String = currentRound.toString() + ". of " + roundsToPlay.toString() +  " Rounds"
 
 fun greetPlayerAskNameHelper(number: Int): String = "Hello Player " + number.toString() + "! What's your name?"
 
@@ -448,7 +448,7 @@ Nachdem alle Runden gespielt wurden, wird das Endergebnis ausgegeben.
 
 Beispiel:
 ```
-Round 1 of 3
+1. of 3 Rounds
 Hey Alan! Please choose rock, paper or scissors!
 ...
 ...
@@ -476,7 +476,7 @@ Hello Player 2! What's your name?
 Grace
 How many rounds do you want to play? 
 3
-Round 1 of 3
+1. of 3 Rounds
 Hey Alan! Please choose rock, paper or scissors!
 ```
 

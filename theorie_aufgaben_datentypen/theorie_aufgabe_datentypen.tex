@@ -1,0 +1,102 @@
+\documentclass[DIV = 11]{scrartcl}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+
+\usepackage[]{microtype}
+
+\usepackage[
+typ=ab,
+fach=Informatik,
+lerngruppe=TGI11,
+farbig,
+namensfeldAnzeigen,
+%datumAnzeigen,
+seitenzahlen = auto,
+loesungen = seite,
+module= {Papiertypen}
+]{schule}
+\ifoot{% TODO: \usepackage{graphicx} required
+
+		\includegraphics[width=0.3\linewidth]{GHSE-Logo}
+
+}
+\usepackage{fourier-otf}
+\title{Datentypen}
+\usepackage{amsthm, amsmath}
+\newtheorem{theorem}{Gesetz}
+\newtheorem{regel}{Regel}
+\newtheorem*{bsp}{Beispiel}
+\newtheorem*{schreibweise}{Schreibweise}
+\renewcommand*{\proofname}{Herleitung}
+\AtBeginDocument{\renewcommand\proofname{Herleitung}}
+\usepackage{minted}
+\usepackage{amsmath,fontspec,newunicodechar}
+
+
+\NewDocumentCommand{\skull}{}{%
+  \text{\skullfont\symbol{"1F571}}%
+}
+\newunicodechar{🕱}{\skull}
+\begin{document}
+
+\begin{aufgabe}
+Kann der Ausdruck fehlerfrei ausgewertet werden? Falls ja, bestimme den  Wert und den Typ des Ausdrucks.\\
+\hinweis{Der Typ eines Ausdrucks ist der Typ des Ergebnisses.}
+\begin{teilaufgaben}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+1 + "2"
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+"1".toInt() + 2
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+"1".toInt() + 2.toInt()
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+"1".toInt() + 2.toString()
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+"1".toInt() + "2".toInt()
+\end{minted}
+
+\teilaufgabe
+\begin{minted}{Kotlin}
+1.toString() + "2".toInt()
+\end{minted}
+\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}
+Welche globalen Variablen sind nach der Ausführung definiert. Welchen Typ und welchen Wert haben diese?
+
+
+\begin{minted}{Kotlin}
+val a = 3
+
+val b = 4
+
+val c = "a + b"
+
+val d = a + b
+
+val e = "a.toString() + b.toString()"
+
+val f = a.toString() + b.toString()
+
+val g = (a + b).toString()
+\end{minted}
+
+\end{aufgabe}
+
+
+\end{document}

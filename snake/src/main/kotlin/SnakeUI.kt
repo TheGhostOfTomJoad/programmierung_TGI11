@@ -19,7 +19,7 @@ class SnakeUI {
 
     fun println(s:String) {
         clearScreen()
-        terminal.print(s)
+        terminal.rawPrint(s)
         sleep(100)
     }
 
@@ -28,9 +28,12 @@ class SnakeUI {
     }
 
     private fun clearScreen(){
-        cursor.move { setPosition(0,0); clearScreen() }
         cursor.hide(false)
-        //terminal.print("\u001Bc")
+        cursor.move { setPosition(0,0); clearScreenAfterCursor() }
+        //cursor.hide(false)
+        //terminal.rawPrint("\u001Bc")
+        cursor.hide(false)
+        //cursor.hide(false)
         //println("\u001Bc")
     }
 
