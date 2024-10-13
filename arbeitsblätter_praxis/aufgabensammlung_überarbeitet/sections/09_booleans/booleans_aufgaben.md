@@ -179,9 +179,10 @@ loveFun(4,6)
 ### Aufgabe
 
 Schreibe eine Funktion `leapYear`{.kotlin}, die prüft ob ein gegebens Jahr ein Schalctjahr ist.
-  - Alle durch 4 teilbaren Jahre sind Schaltjahre, bis auf die folgende Ausnahme
-  - Ein durch 100 teilbares Jahr ist kein Schlatjahr, bis auf die folgende Ausnahme
-  - Ein durch 400 teilbares Jahr ist ein Schaltjahr 
+
+- Alle durch 4 teilbaren Jahre sind Schaltjahre, bis auf die folgende Ausnahme:
+- Ein durch 100 teilbares Jahr ist kein Schlatjahr, bis auf die folgende Ausnahme:
+- Ein durch 400 teilbares Jahr ist ein Schaltjahr 
 
 ``` {.kotlin .cb-nb first_number=1}
 isLeapYear(95)
