@@ -134,6 +134,63 @@ bonusTime(50, true)
 <!-- <https://www.codewars.com/kata/56f6ad906b88de513f000d96/train/kotlin> -->
 
 
+
+
+
+### Aufgabe
+Implementiere eine Funktion `evenOrOdd`{.kotlin}, die eine ganze Zahl
+übergeben bekommt und `even`{.kotlin} zurückgibt, wenn diese Zahl gerade
+ist. Wenn die Zahl ungerade ist, soll `odd`{.kotlin} zurückgegeben
+werden.
+
+``` {.kotlin .cb-nb first_number=1}
+evenOrOdd(5)
+```
+``` {.kotlin .cb-nb first_number=1}
+evenOrOdd(4)
+```
+
+<https://www.codewars.com/kata/53da3dbb4a5168369a0000fe/train/kotlin>
+
+
+### Aufgabe
+
+Schreibe eine Funktion `century`{.kotlin}, die berechnet in welchen Jahrhundert ein Jahr ist.
+
+``` {.kotlin .cb-nb first_number=1}
+century(350)
+```
+``` {.kotlin .cb-nb first_number=1}
+century(400)
+
+```
+``` {.kotlin .cb-nb first_number=1}
+century(401)
+```
+``` {.kotlin .cb-nb first_number=1}
+century(402)
+```
+
+
+<https://www.codewars.com/kata/5a3fe3dde1ce0e8ed6000097/kotlin>
+
+
+### Aufgabe
+Implementiere eine Funktion `simpleMultiplication`{.kotlin} die ein
+Integer übergeben bekommt. Wenn dieses Integer gerade ist, gibt sie das
+achtfache zurück. Wenn es nicht gerade ist, gibt sie das neunfache
+zurück.
+
+``` {.kotlin .cb-nb first_number=1}
+simpleMultiplication(2)
+```
+``` {.kotlin .cb-nb first_number=1}
+simpleMultiplication(3)
+```
+
+<https://www.codewars.com/kata/583710ccaa6717322c000105/train/kotlin>
+
+
 ## Mehrere Alternativen
 
 ### Aufgabe
@@ -199,61 +256,6 @@ getGrade(10, 50, 70)
 ### Aufgabe
 Passe die Funktion `getGrade`{.kotlin} so an, dass der Durchschnitt nur
 einmal berechnet wird.
-
-
-### Aufgabe
-Implementiere eine Funktion `evenOrOdd`{.kotlin}, die eine ganze Zahl
-übergeben bekommt und `even`{.kotlin} zurückgibt, wenn diese Zahl gerade
-ist. Wenn die Zahl ungerade ist, soll `odd`{.kotlin} zurückgegeben
-werden.
-
-``` {.kotlin .cb-nb first_number=1}
-evenOrOdd(5)
-```
-``` {.kotlin .cb-nb first_number=1}
-evenOrOdd(4)
-```
-
-<https://www.codewars.com/kata/53da3dbb4a5168369a0000fe/train/kotlin>
-
-
-### Aufgabe
-
-Schreibe eine Funktion `century`{.kotlin}, die berechnet in welchen Jahrhundert ein Jahr ist.
-
-``` {.kotlin .cb-nb first_number=1}
-century(350)
-```
-``` {.kotlin .cb-nb first_number=1}
-century(400)
-
-```
-``` {.kotlin .cb-nb first_number=1}
-century(401)
-```
-``` {.kotlin .cb-nb first_number=1}
-century(402)
-```
-
-
-<https://www.codewars.com/kata/5a3fe3dde1ce0e8ed6000097/kotlin>
-
-
-### Aufgabe
-Implementiere eine Funktion `simpleMultiplication`{.kotlin} die ein
-Integer übergeben bekommt. Wenn dieses Integer gerade ist, gibt sie das
-achtfache zurück. Wenn es nicht gerade ist, gibt sie das neunfache
-zurück.
-
-``` {.kotlin .cb-nb first_number=1}
-simpleMultiplication(2)
-```
-``` {.kotlin .cb-nb first_number=1}
-simpleMultiplication(3)
-```
-
-<https://www.codewars.com/kata/583710ccaa6717322c000105/train/kotlin>
-
 
 ### Aufgabe
 Implementiere eine Funktion `multiple`{.kotlin}, die ein Integer

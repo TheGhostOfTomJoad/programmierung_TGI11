@@ -88,7 +88,7 @@ zeroFuel(100, 50, 1)
 ### Aufgabe
 Implementiere eine Funktion `setAlarm`{.kotlin}, die zurückgibt, ob ein
 Wecker gestellt werden muss. Die Funktion hat zwei Parameter vom Typ
-*Bool* (die Typannotation ist `bool`{.kotlin}). Der erste Parameter gibt
+*Bool* (die Typannotation ist `Boolean`{.kotlin}). Der erste Parameter gibt
 an ob eine Person angestellt ist. Der zweite Parameter gibt an, ob die
 Person gerade Urlaub hat. Die Funktion soll genau dann `true`{.kotlin}
 zurückgeben, wenn die Person angestellt ist und gerade keinen Urlaub
